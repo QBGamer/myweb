@@ -39,10 +39,10 @@
                     <li id="search-bar">
                         <input id="search-box" type="text" placeholder="Tìm kiếm...">
                     </li>
-                    <li id="shop">
-                        <a href="shop.php" id="header-icon-box">
-                            <img src="./icons/shop.png" id="header-icon">
-                            <span id="header-icon-text">Cửa<br>hàng</span>
+                    <li id="home">
+                        <a href="index.php" id="header-icon-box">
+                            <img src="./icons/home.png" id="header-icon">
+                            <span id="header-icon-text">Trang<br>chủ</span>
                         </a>
                     </li>
                     <li id="cart">
@@ -67,6 +67,15 @@
                 </ul>
             </div>
             <div id="body-content">
+                <?php
+                foreach ($allproduct as $item){
+                    echo '<div id="item">
+                        <img id="item_img" src="./product_image/'.$item['picture'].'">
+                        <div id="item_name">'.$item['prd_name'].'</div>
+                        <div id="item_price">'.$item['prd_price'].'</div>
+                        </div>';
+                }
+                ?>
             </div>
         </div>
     </body>

@@ -1,0 +1,8 @@
+@keyframes test{
+    0% {left: 1px;}
+}
+
+#review-img{
+    animation-name: test;
+    animation-duration: 4s;
+}
