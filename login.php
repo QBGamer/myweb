@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
     <script src="./js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
 </head>
 <body>
 <?php
@@ -60,5 +61,6 @@
 <?php
     addFooter();
 ?>
+
 </body>
 </html>

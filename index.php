@@ -1,11 +1,12 @@
 <?php
-  session_start();
-  include "./handle/db_con.php";
-  include "./handle/handle_sqldata.php";
-  require "./web/echoHTML.php";
+    session_start();
+    include "./handle/db_con.php";
+    include "./handle/handle_sqldata.php";
+    require "./web/echoHTML.php";
 
-  $newproductdata=getallproduct(FALSE);
-  $hotproductdata=getallproduct(TRUE);
+
+    $newproductdata=getallproduct();
+    $hotproductdata=getallproduct(['views'=>1]);
 ?>
 <!DOCTYPE html>
 <html lang="en">

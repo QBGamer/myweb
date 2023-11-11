@@ -13,8 +13,8 @@ function addHeader(){
             </li>
             <li class="nav-item mx-sm-1 mx-lg-5">
                 <div id="search-box" class="input-group d-flex justify-content-center">
-                    <input id="search-bar" type="text" class="form-control" placeholder="Tìm kiếm tại đây!...">
-                    <span id="search-bt" class="input-group-text"><i class="bi-search"></i></span>
+                    <input id="search-bar" type="text" class="form-control sreach_name_box" placeholder="Tìm kiếm tại đây!...">
+                    <span id="search-bt" class="input-group-text btn sreach_name_btn bg-light"><i class="bi-search"></i></span>
                 </div>
             </li>
             <li class="nav-item mx-sm-1 ms-lg-5 me-2">

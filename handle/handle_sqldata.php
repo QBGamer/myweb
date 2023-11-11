@@ -1,27 +1,38 @@
 <?php
 include "db_con.php";
-// function getallproduct($sreach_name,$minprice,$maxprice,$sreach_brand,$sreach_view){
-function getallproduct($sreach_view){
+
+
+function getallproduct($sreach_array=['views']){
+    $mapping = [
+        'name' => 'prd_name',
+        'min' => 'prd_price',
+        'max' => 'prd_price',
+        'brand' => 'brand_id',
+        'type' => 'type_id',
+        'views' => 'views'
+    ];
     require "db_con.php";
     $sql="SELECT * FROM product";
     $sql.=" WHERE 1";
-    // if($sreach_name!=0){
-    //     $sql.=" AND prd_name LIKE '$'.$sreach_name.'$'";
-    // }
-    // if($minprice!=""){
-    //     $sql.=" AND prd_price>='.$minprice.'";
-    // }
-    // if($maxprice!=""){
-    //     $sql.=" AND prd_price<='.$maxprice.'";
-    // }
-    // if($sreach_brand!=""){
-    //     $sql.=" AND brand_id='.$sreach_brand.'";
-    // }
-    if($sreach_view){
-        $sql.=" ORDER BY views DESC";
-    }else{
-        $sql.=" ORDER BY prd_id DESC";
+    foreach($sreach_array as $key => $value) {
+        if($key === 'name') {
+            $sql .= " AND $mapping[$key] LIKE '%$value%'";
+        } else if($key === 'min') {
+            $sql .= " AND $mapping[$key] >= $value";
+        } else if($key === 'max') {
+            $sql .= " AND $mapping[$key] <= $value";
+        } else if($key === 'brand') {
+            $sql .= " AND $mapping[$key] = $value";
+        } else if($key === 'type') {
+            $sql .= " AND $mapping[$key] = $value";
+        } else if($key === 'views') {
+            // $sql .= " ORDER BY $mapping[$key] " . $value ? "DESC" : "ASC";
+            $sql .= " ORDER BY views DESC";
+        } else {
+            $sql .= " ORDER BY prd_id DESC";
+        }
     }
+    // var_dump($sql);
     $result = mysqli_query($conn, $sql);
     $resultArray=mysqli_fetch_all($result,MYSQLI_ASSOC);
     return $resultArray;

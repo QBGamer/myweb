@@ -4,7 +4,17 @@
   include "./handle/handle_sqldata.php";
   require "./web/echoHTML.php";
 
-  $productdata=getallproduct(FALSE);
+  
+  // var_dump("http://localhost".$_SERVER['REQUEST_URI']);
+  $url="http://localhost".$_SERVER['REQUEST_URI'];
+  $parts=parse_url($url);
+  if(isset($parts['query'])){
+    parse_str($parts['query'],$result);
+    // var_dump($result);
+    $productdata=getallproduct($result);
+  }else{
+    $productdata=getallproduct();
+  }
   $branddata=getallbrand();
   $typedata=getalltype();
   $test=0;
@@ -25,6 +35,8 @@
     <script src="./js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" type="text/javascript"></script>
 </head>
 <body>
 <?php
@@ -42,7 +54,17 @@
                       <?php
                         foreach($branddata as $brddata){
                           echo '<li>
-                                  <button id="brand'.$brddata['brand-id'].'" type="button" class="btn"><i class="bi-caret-right"></i> '.$brddata['brand-name'].'</button>
+                                  <a href="#"';
+                          if(isset($result['brand'])){
+                            if($brddata['brand_id']==$result['brand']){
+                              echo 'class="nav-link btn-secondary"';
+                            }else{
+                              echo 'class="nav-link disabled"';
+                            }
+                          }else{
+                            echo 'class="nav-link"';
+                          }
+                          echo 'data-mtype="brand" data-mvalue="'.$brddata['brand_id'].'"><i class="bi-caret-right"></i> '.$brddata['brand_name'].'</a>
                                 </li>';
                         }
                       ?>
@@ -54,8 +76,18 @@
                       <?php
                         foreach($typedata as $tdata){
                           echo '<li>
-                              <button type="button" class="btn"><i class="bi-caret-right"></i> '.$tdata["type_name"].'</button>
-                            </li>';
+                                  <a href="#"';
+                          if(isset($result['type'])){
+                            if($tdata['type_id']==$result['type']){
+                              echo 'class="nav-link btn-secondary"';
+                            }else{
+                              echo 'class="nav-link disabled"';
+                            }
+                          }else{
+                            echo 'class="nav-link"';
+                          }
+                          echo 'data-mtype="type" data-mvalue="'.$tdata['type_id'].'"><i class="bi-caret-right"></i> '.$tdata['type_name'].'</a>
+                                </li>';
                         }
                       ?>
                     </ul>
@@ -66,13 +98,13 @@
                       <li>
                         <div class="input-group">
                           <span class="input-group-text">Từ</span>
-                          <input type="text" class="form-control" placeholder="vd: 100.000 đ">
+                          <input id="search_min" type="text" class="form-control" placeholder="vd: 100.000 đ" value="<?php if(isset($result['min'])) echo $result['min'];?>">
                         </div>
                         <div class="input-group">
                           <span class="input-group-text">Đến</span>
-                          <input type="text" class="form-control" placeholder="vd: 1.100.000 đ">
+                          <input id="search_max" type="text" class="form-control" placeholder="vd: 1.100.000 đ" value="<?php if(isset($result['max'])) echo $result['max'];?>">
                         </div>
-                        <button type="button" class="btn btn-danger float-end mt-2">Tìm kiếm</button>
+                        <button type="button" class="btn btn-danger float-end mt-2 search_money">Tìm kiếm giá</button>
                       </li>
                     </ul>
                   </li>
@@ -110,4 +142,69 @@
 <?php
   addFooter();
 ?>
+
+<script>
+    $('.nav-link').click(function(){
+        var thisurl=window.location.search;
+        var linkget="&"+this.dataset.mtype+"="+this.dataset.mvalue;
+        if(thisurl==""){
+            thisurl+="?"+linkget;
+        }else{
+            if(thisurl.includes(this.dataset.mtype)){
+                thisurl=thisurl.replace(linkget,'');
+            }else{
+              thisurl+=linkget;
+            }
+        }
+        window.location.search=thisurl;
+    });
+
+    $('.sreach_name_box').keypress(function(eventkey){
+      if(eventkey.key==="Enter"){
+        var srname=document.getElementById("search-bar").value;
+        window.location.search="?name="+srname;
+      }
+    });
+
+    $('.sreach_name_btn').click(function(){
+      var srname=document.getElementById("search-bar").value;
+      if(srname!=""){
+        window.location.search="?name="+srname;
+      }
+    });
+
+    $('.search_money').click(function(){
+      var min=document.getElementById("search_min").value;
+      var max=document.getElementById("search_max").value;
+      var thisurl=window.location.search;
+      if(min!=""){
+          var moneymin="&min="+min;
+          if(thisurl==""){
+            thisurl+="?"+moneymin;
+          }else{
+            if(thisurl.includes("&min=")){
+              thisurl=thisurl.replace("&min=<?php if(isset($result['max'])) echo $result['min']?>",moneymin);
+            }else{
+              thisurl+=moneymin
+            }
+          }
+        }
+      if(max!=""){
+        var moneymax="&max="+max;
+        if(thisurl==""){
+          thisurl+="?"+moneymax;
+        }else{
+          if(thisurl.includes("&max=")){
+            thisurl=thisurl.replace("&max=<?php if(isset($result['max'])) echo $result['max']?>",moneymax);
+          }else{
+            thisurl+=moneymax;
+          }
+        }
+      }
+      // asd
+      window.location.search=thisurl;
+    });
+</script>
+
 </body>
+</html>
