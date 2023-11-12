@@ -65,7 +65,7 @@ function addHeader(){
 }
 
 function addFooter(){
-    echo '<div id="footer" class="navbar navbar-expand-sm bg-dark">
+    echo '<div id="footer" class="navbar navbar-expand-sm bg-dark mt-5">
     <div class="container-fluid justify-content-center pb-3">
         <ul class="navbar-nav">
             <li class="nav-item mx-5 my-3 text-white">
@@ -111,5 +111,21 @@ function addHeaderOther(){
             <li class="nav-item fs-3 text-light">Đăng nhập</li>
     </div>
 </div>';
+}
+
+function searchbox(){
+    echo "$('.sreach_name_box').keypress(function(eventkey){
+            if(eventkey.key==='Enter'){
+                var srname=document.getElementById('search-bar').value;
+                window.location ='shop.php?name='+srname;
+            }
+            });
+
+            $('.sreach_name_btn').click(function(){
+            var srname=document.getElementById('search-bar').value;
+            if(srname!=''){
+                window.location='shop.php?name='+srname;
+            }
+            });";
 }
 ?>

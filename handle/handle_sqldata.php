@@ -1,7 +1,6 @@
 <?php
 include "db_con.php";
 
-
 function getallproduct($sreach_array=['views']){
     $mapping = [
         'name' => 'prd_name',
@@ -38,18 +37,45 @@ function getallproduct($sreach_array=['views']){
     return $resultArray;
 }
 
-
-
-function getallbrand(){
+function getallbrand($id){
     require "db_con.php";
     $sql="SELECT * FROM brand";
+    if($id){
+        $sql.=" WHERE brand_id=$id";
+    }
     $result = mysqli_query($conn, $sql);
     return $result;
 }
 
-function getalltype(){
+function getalltype($id){
     require "db_con.php";
     $sql="SELECT * FROM type";
+    if($id){
+        $sql.=" WHERE type_id=$id";
+    }
+    $result = mysqli_query($conn, $sql);
+    return $result;
+}
+
+function getusercart($uname){
+    require "db_con.php";
+    $sql="SELECT product.*,cart.num FROM cart,users,product WHERE users.username='$uname' AND users.username=cart.username AND product.prd_id=cart.prd_id";
+    $result = mysqli_query($conn, $sql);
+    // $resultArray=mysqli_fetch_all($result,MYSQLI_ASSOC);
+    return $result;
+}
+
+// function controlcart($type,$idcart){
+//     session_start();
+//     require "db_con.php";
+//     $sql="SELECT * FROM usercart WHERE cart_id";
+//     $result = mysqli_query($conn, $sql);
+//     if($_SESSION["username"]);
+// }
+
+function getproduct($id){
+    require "db_con.php";
+    $sql="SELECT * FROM product WHERE prd_id=$id";
     $result = mysqli_query($conn, $sql);
     return $result;
 }

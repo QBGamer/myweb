@@ -15,9 +15,8 @@
   }else{
     $productdata=getallproduct();
   }
-  $branddata=getallbrand();
-  $typedata=getalltype();
-  $test=0;
+  $branddata=getallbrand(FALSE);
+  $typedata=getalltype(FALSE);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,12 +56,12 @@
                                   <a href="#"';
                           if(isset($result['brand'])){
                             if($brddata['brand_id']==$result['brand']){
-                              echo 'class="nav-link btn-secondary"';
+                              echo 'class="nav-link btn-secondary search-filter"';
                             }else{
                               echo 'class="nav-link disabled"';
                             }
                           }else{
-                            echo 'class="nav-link"';
+                            echo 'class="nav-link search-filter"';
                           }
                           echo 'data-mtype="brand" data-mvalue="'.$brddata['brand_id'].'"><i class="bi-caret-right"></i> '.$brddata['brand_name'].'</a>
                                 </li>';
@@ -79,12 +78,12 @@
                                   <a href="#"';
                           if(isset($result['type'])){
                             if($tdata['type_id']==$result['type']){
-                              echo 'class="nav-link btn-secondary"';
+                              echo 'class="nav-link btn-secondary search-filter"';
                             }else{
                               echo 'class="nav-link disabled"';
                             }
                           }else{
-                            echo 'class="nav-link"';
+                            echo 'class="nav-link search-filter"';
                           }
                           echo 'data-mtype="type" data-mvalue="'.$tdata['type_id'].'"><i class="bi-caret-right"></i> '.$tdata['type_name'].'</a>
                                 </li>';
@@ -121,14 +120,17 @@
                     foreach($productdata as $item){
                       echo '<div class="col">
                             <div class="card">
+                              <a class="text-decoration-none" href="view.php?id='.$item['prd_id'].'">
                                 <div id="product-box" class="card-img-top bg-img hover-zoom">
                                     <img class="img-fluid" src="./product_image/'.$item['picture'].'">
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">'.$item['prd_name'].'</h5>
-                                    <p class="card-text text-danger">'.number_format($item['prd_price']).' đ</p>
+                                    <h5 class="card-title text-dark">'.$item['prd_name'].'</h5>
+                                    <p class="text-dark">'.$item['views'].' lượt xem</p>
+                            <p class="card-text fs-5 text-danger">'.number_format($item['prd_price']).' đ</p>
                                 </div>
                             </div>
+                            </a>
                         </div>';
                     }
                   ?>
@@ -144,7 +146,7 @@
 ?>
 
 <script>
-    $('.nav-link').click(function(){
+    $('.search-filter').click(function(){
         var thisurl=window.location.search;
         var linkget="&"+this.dataset.mtype+"="+this.dataset.mvalue;
         if(thisurl==""){
@@ -158,21 +160,9 @@
         }
         window.location.search=thisurl;
     });
-
-    $('.sreach_name_box').keypress(function(eventkey){
-      if(eventkey.key==="Enter"){
-        var srname=document.getElementById("search-bar").value;
-        window.location.search="?name="+srname;
-      }
-    });
-
-    $('.sreach_name_btn').click(function(){
-      var srname=document.getElementById("search-bar").value;
-      if(srname!=""){
-        window.location.search="?name="+srname;
-      }
-    });
-
+    <?php
+        searchbox();
+    ?>
     $('.search_money').click(function(){
       var min=document.getElementById("search_min").value;
       var max=document.getElementById("search_max").value;

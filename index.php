@@ -24,6 +24,8 @@
     <script src="./js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" type="text/javascript"></script>
 </head>
 <body>
 <?php
@@ -74,46 +76,55 @@
     <div class="container">
         <div class="row row-cols-1 row-cols-2 row-cols-3 g-3">
             <div class="col">
-                <div class="card">
+                <div class="card" id="product-box">
                 <?php
-                    echo '<div id="product-box" class="card-img-top bg-img hover-zoom">
-                            <img class="img-fluid" src="./product_image/'.$hotproductdata[0]['picture'].'">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">'.$hotproductdata[0]['prd_name'].'</h5>
-                            <p class="card-text text-danger">'.number_format($hotproductdata[0]['prd_price']).' đ</p>
-                        </div>';
+                    echo '<a class="text-decoration-none" href="view.php?id='.$hotproductdata[0]['prd_id'].'">
+                            <div class="card-img-top bg-img hover-zoom">
+                                <img class="img-fluid" src="./product_image/'.$hotproductdata[0]['picture'].'">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">'.$hotproductdata[0]['prd_name'].'</h5>
+                                <p class="text-dark">'.$hotproductdata[0]['views'].' lượt xem</p>
+                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[0]['prd_price']).' đ</p>
+                            </div>
+                        </a>';
                 ?>
                 </div>
             </div>
             <div class="col">
-                <div class="card">
+                <div class="card" id="product-box">
                 <?php
-                    echo '<div id="product-box" class="card-img-top bg-img hover-zoom">
-                            <img class="img-fluid" src="./product_image/'.$hotproductdata[1]['picture'].'">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">'.$hotproductdata[1]['prd_name'].'</h5>
-                            <p class="card-text text-danger">'.number_format($hotproductdata[1]['prd_price']).' đ</p>
-                        </div>';
+                    echo '<a class="text-decoration-none" href="view.php?id='.$hotproductdata[1]['prd_id'].'">
+                            <div class="card-img-top bg-img hover-zoom">
+                                <img class="img-fluid" src="./product_image/'.$hotproductdata[1]['picture'].'">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">'.$hotproductdata[1]['prd_name'].'</h5>
+                                <p class="text-dark">'.$hotproductdata[1]['views'].' lượt xem</p>
+                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[1]['prd_price']).' đ</p>
+                            </div>
+                        </a>';
                 ?>
                 </div>
             </div>
             <div class="col">
-                <div class="card">
+                <div class="card" id="product-box">
                 <?php
-                    echo '<div id="product-box" class="card-img-top bg-img hover-zoom">
+                    echo '<a class="text-decoration-none" href="view.php?id='.$hotproductdata[2]['prd_id'].'">
+                        <div class="card-img-top bg-img hover-zoom">
                             <img class="img-fluid" src="./product_image/'.$hotproductdata[2]['picture'].'">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">'.$hotproductdata[2]['prd_name'].'</h5>
-                            <p class="card-text text-danger">'.number_format($hotproductdata[2]['prd_price']).' đ</p>
-                        </div>';
+                            <h5 class="card-title text-dark">'.$hotproductdata[2]['prd_name'].'</h5>
+                            <p class="text-dark">'.$hotproductdata[2]['views'].' lượt xem</p>
+                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[2]['prd_price']).' đ</p>
+                        </div>
+                        </a>';
                 ?>
                 </div>
             </div>
         </div>
-        <button id="btn-hot-product" type="button" class="btn btn-light my-2 float-end">Xem thêm</button>
+        <button id="btn-hot-product" type="button" class="btn btn-light my-2 float-end" onclick="window.location='shop.php'">Xem thêm</button>
     </div>
 </div>
 <div id="new-product" class="py-5 bg-light">
@@ -123,48 +134,62 @@
             <div class="col">
                 <div class="card">
                 <?php
-                    echo '<div id="product-box" class="card-img-top">
-                        <img class="img-fluid" src="./product_image/'.$newproductdata[0]['picture'].'">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">'.$newproductdata[0]['prd_name'].'</h5>
-                        <p class="card-text text-danger">'.number_format($hotproductdata[0]['prd_price']).' đ</p>
-                    </div>';
+                    echo '<a class="text-decoration-none" href="view.php?id='.$newproductdata[0]['prd_id'].'">
+                        <div id="product-box" class="card-img-top">
+                            <img class="img-fluid" src="./product_image/'.$newproductdata[0]['picture'].'">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">'.$newproductdata[0]['prd_name'].'</h5>
+                            <p class="text-dark">'.$newproductdata[0]['views'].' lượt xem</p>
+                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[0]['prd_price']).' đ</p>
+                        </div>
+                    </a>';
                 ?>
                 </div>
             </div>
             <div class="col">
                 <div class="card">
                 <?php
-                    echo '<div id="product-box" class="card-img-top">
-                        <img class="img-fluid" src="./product_image/'.$newproductdata[1]['picture'].'">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">'.$newproductdata[1]['prd_name'].'</h5>
-                        <p class="card-text text-danger">'.number_format($hotproductdata[1]['prd_price']).' đ</p>
-                    </div>';
+                    echo '<a class="text-decoration-none" href="view.php?id='.$newproductdata[1]['prd_id'].'">
+                        <div id="product-box" class="card-img-top">
+                            <img class="img-fluid" src="./product_image/'.$newproductdata[1]['picture'].'">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">'.$newproductdata[1]['prd_name'].'</h5>
+                            <p class="text-dark">'.$newproductdata[1]['views'].' lượt xem</p>
+                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[1]['prd_price']).' đ</p>
+                        </div>
+                    </a>';
                 ?>
                 </div>
             </div>
             <div class="col">
                 <div class="card">
                 <?php
-                    echo '<div id="product-box" class="card-img-top">
-                        <img class="img-fluid" src="./product_image/'.$newproductdata[2]['picture'].'">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">'.$newproductdata[2]['prd_name'].'</h5>
-                        <p class="card-text text-danger">'.number_format($hotproductdata[2]['prd_price']).' đ</p>
-                    </div>';
+                    echo '<a class="text-decoration-none" href="view.php?id='.$newproductdata[2]['prd_id'].'">
+                        <div id="product-box" class="card-img-top">
+                            <img class="img-fluid" src="./product_image/'.$newproductdata[2]['picture'].'">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">'.$newproductdata[2]['prd_name'].'</h5>
+                            <p class="text-dark">'.$newproductdata[2]['views'].' lượt xem</p>
+                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[2]['prd_price']).' đ</p>
+                        </div>
+                    </a>';
                 ?>
                 </div>
             </div>
         </div>
-        <button id="btn-new-product" type="button" class="btn btn-light mt-2 float-end">Xem thêm</button>
+        <button id="btn-new-product" type="button" class="btn btn-light my-2 float-end" onclick="window.location='shop.php'" >Xem thêm</button>
     </div>
 </div>
 <?php
     addFooter();
 ?>
+<script>
+    <?php
+        searchbox();
+    ?>
+</script>
 </body>
 </html>

@@ -1,5 +1,9 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    /* background-image: url('../images/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%; */
 }
 
 #logo{
@@ -36,14 +40,60 @@ body{
     height: 800px;
 }
 
-#login{
+#img{
+    width: 40%;
+}
+/* #login{
     background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
-}
+} */
 
 #login-box{
     width: 30%;
     max-width: 40%;
+}
+
+/* #footer{
+    position: absolute;
+    width: 100%
+}*/
+#cart-table-header-sp{
+    width: 20%;
+}
+#cart-table-header{
+    width: 10%;
+}
+
+#cart-data-block{
+    width: 60%;
+    height: 100%;
+}
+
+#cart-buy-block{
+    max-width: 60%;
+}
+
+#item-view{
+    max-width: 60%;
+}
+
+#img-view{
+    width:100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#number-box{
+    width: 300px;
 }
