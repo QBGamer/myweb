@@ -57,9 +57,10 @@ function getalltype($id){
     return $result;
 }
 
-function getusercart($uname){
+function getusercart($uname,$id){
     require "db_con.php";
-    $sql="SELECT product.*,cart.num FROM cart,users,product WHERE users.username='$uname' AND users.username=cart.username AND product.prd_id=cart.prd_id";
+    // $sql="SELECT product.*,cart.num FROM cart,users,product WHERE users.username='$uname' AND users.username=cart.username AND product.prd_id=cart.prd_id";
+    $sql="SELECT * FROM cart WHERE username='$uname' AND prd_id=$id";
     $result = mysqli_query($conn, $sql);
     // $resultArray=mysqli_fetch_all($result,MYSQLI_ASSOC);
     return $result;

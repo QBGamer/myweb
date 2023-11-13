@@ -8,7 +8,10 @@
         header("Location: ./shop.php");
         exit();
     }
-    $productdata=mysqli_fetch_all(getproduct($_GET['id']),MYSQLI_ASSOC)[0];
+    $id=$_GET['id'];
+    $sql="UPDATE product SET views=views+1 WHERE prd_id=$id";
+    mysqli_query($conn, $sql);
+    $productdata=mysqli_fetch_all(getproduct($id),MYSQLI_ASSOC)[0];
     $brand=mysqli_fetch_all(getallbrand($productdata['brand_id']),MYSQLI_ASSOC)[0];
     $type=mysqli_fetch_all(getalltype($productdata['type_id']),MYSQLI_ASSOC)[0];
 ?>
@@ -52,12 +55,14 @@
                         <div class="my-1 fs-4">
                             <div id="number-box" class="input-group d-flex justify-content-center">
                                 Số lượng:
-                                <button id="" class="ms-5 input-group-text btn btn-outline-secondary" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
-                                <input id="" type="number" class="form-control" min="1" value="1">
-                                <button id="" class="input-group-text btn btn-outline-secondary" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
+                                <button class="ms-5 input-group-text btn btn-outline-secondary" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
+                                <input id="quantity" type="number" class="form-control" min="1" value="1">
+                                <button class="input-group-text btn btn-outline-secondary" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-danger mt-5 fs-3">Đặt hàng</button>
+                    <?php
+                        echo '<button type="button" class="btn btn-danger mt-5 fs-3 btn-addcart" data-id='.$id.'>Thêm vào giỏ</button>';
+                    ?>
                     </div>
                 </div>
             </div>
@@ -80,5 +85,19 @@
 <?php
     addFooter();
 ?>
+<script>
+    $('.btn-addcart').click(function() {
+        var id=this.dataset.id;
+        var quantity=document.getElementById('quantity').value;
+        var xmlhttp = new XMLHttpRequest();
+        // xmlhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //     document.getElementById("cart-data-block").innerHTML = this.responseText;
+        //     }
+        // };
+        xmlhttp.open("GET","./handle/cart/add_to_cart.php?id="+id+"&quantity="+quantity,true);
+        xmlhttp.send();
+    });
+</script>
 </body>
 </html>

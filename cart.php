@@ -2,7 +2,7 @@
     session_start();
     require "./web/echoHTML.php";
     if(!isset($_SESSION["username"])){
-        header("Location: ./index.php");
+        header("Location: ./login.php");
         exit();
     }else{
         include "./handle/handle_sqldata.php";
