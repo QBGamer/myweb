@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2023 at 02:08 PM
+-- Generation Time: Nov 13, 2023 at 11:36 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -71,10 +71,11 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `username`, `prd_id`, `num`) VALUES
-(1, 'admin', 1, 10),
-(2, 'admin', 3, 3),
 (3, 'user', 2, 1),
-(4, 'admin', 4, 2);
+(7, 'user', 4, 1),
+(8, 'user', 1, 1),
+(21, 'admin', 3, 5),
+(22, 'admin', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -104,10 +105,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`prd_id`, `prd_name`, `prd_price`, `prd_pricenew`, `prd_special`, `prd_size`, `prd_inverter`, `prd_color`, `prd_vol`, `prd_speedlvl`, `picture`, `views`, `brand_id`, `type_id`) VALUES
-(1, 'Máy lạnh ngon 1', 10000000, NULL, NULL, '100x100', '1', 'light', 300, 3, 'ml.jpg', 5, 1, 3),
-(2, 'Máy lạnh 2', 12000000, NULL, NULL, '100x100', '1', 'light', 300, 3, 'ml.jpg', 220, 1, 2),
-(3, 'Máy lạnh ngon 3', 100000000, NULL, NULL, '100x100', '1', 'light', 300, 3, 'ml.jpg', 0, 2, 3),
-(4, 'Máy lạnh 4', 100000000, NULL, NULL, '100x100', '1', 'red', 220, 24, 'ml.jpg', 120, 3, 1);
+(1, 'Máy lạnh ngon 1', 10000000, NULL, NULL, '100x100', 'Có', 'light', 300, 3, 'ml.jpg', 6, 1, 3),
+(2, 'Máy lạnh 2', 12000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 227, 1, 2),
+(3, 'Máy lạnh ngon 3', 100000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 19, 2, 3),
+(4, 'Máy lạnh 4', 100000000, NULL, NULL, '100x100', 'Không', 'red', 220, 24, 'ml.jpg', 121, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -138,7 +139,7 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 CREATE TABLE `users` (
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `phonenumber` int(10) DEFAULT NULL,
+  `phonenumber` varchar(10) DEFAULT NULL,
   `mail` varchar(100) DEFAULT NULL,
   `address` varchar(200) DEFAULT NULL,
   `permission` bit(1) DEFAULT NULL
@@ -149,8 +150,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `password`, `phonenumber`, `mail`, `address`, `permission`) VALUES
-('admin', 'admin', NULL, NULL, NULL, b'1'),
-('user', '123456', 123456789, 'user@gmail.com', 'Vĩnh Long', NULL);
+('admin', '21232f297a57a5a743894a0e4a801fc3', '', '', '', b'1'),
+('user', '25d55ad283aa400af464c76d713c07ad', '1234567890', 'user@user.com', 'Ở đâu đó không biết', NULL);
 
 --
 -- Indexes for dumped tables
@@ -206,7 +207,7 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `product`
