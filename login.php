@@ -48,11 +48,16 @@
                     </div> -->
                     <?php
                         if(isset($_GET['error'])) { ?>
-                        <p class="error text-danger"> <?php echo $_GET['error']; ?></p>
+                        <p class="error text-danger">*<?php echo $_GET['error']; ?>*</p>
                         <?php }
                     ?>
-                    <button type="submit" class="btn btn-primary d-flex flex-row-reverse">Đăng nhập</button>
-                    <p class="text-primary mt-3 d-flex flex-row-reverse"><a href="#">Quên mật khẩu</a></p>
+                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                    <div class="container">
+                        <div class="row mt-3">
+                            <div class="col text-start"><a href="./register.php">Chưa có tài khoản?</a></div>
+                            <div class="col text-end"><a href="">Quên mật khẩu?</a></div>
+                        </div>
+                    </div>
                     </form>
             </div>
         </div>

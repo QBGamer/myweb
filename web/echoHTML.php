@@ -107,10 +107,16 @@ function addHeaderOther(){
                     <img id="logosmall" src="./images/logo.png" alt="">
                 </a>
             </li>
-            <li class="nav-item fs-3 text-light"><i class="bi-caret-right-fill"></i></li>
-            <li class="nav-item fs-3 text-light">Đăng nhập</li>
-    </div>
-</div>';
+            <li class="nav-item fs-3 text-light"><i class="bi-caret-right-fill"></i></li>';
+
+    if(strpos($_SERVER['REQUEST_URI'],"register.php")){
+        echo    '<li class="nav-item fs-3 text-light">Đăng ký</li>';
+    }
+    else{
+        echo    '<li class="nav-item fs-3 text-light">Đăng nhập</li>';
+    }
+    echo '</div>
+    </div>';
 }
 
 function searchbox(){

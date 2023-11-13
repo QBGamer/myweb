@@ -22,7 +22,7 @@
         header("Location: ../login.php?error=Mật khẩu không bỏ trống");
         exit();
     }
-    
+    $pass=md5($pass);
     $sql = "SELECT * FROM users WHERE username='$uname' AND password='$pass'";
 
     $result = mysqli_query($conn, $sql);

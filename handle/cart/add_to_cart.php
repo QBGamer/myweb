@@ -7,7 +7,7 @@
         $quantity=$_GET['quantity'];
         $uname=$_SESSION["username"];
         $result=getusercart($uname,$id);
-        if(mysqli_fetch_row($result)[2]==$id){
+        if(mysqli_num_rows($result)==1){
             $sql="UPDATE cart SET num=num+$quantity WHERE username='$uname' AND prd_id=$id";
         }else{
             $sql="INSERT INTO cart (username, prd_id, num) VALUES ('$uname', '$id', '$quantity')";
