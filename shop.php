@@ -122,7 +122,7 @@
                             <div class="card">
                               <a class="text-decoration-none" href="view.php?id='.$item['prd_id'].'">
                                 <div id="product-box" class="card-img-top bg-img hover-zoom">
-                                    <img class="img-fluid" src="./product_image/'.$item['picture'].'">
+                                    <img id="product_img" class="img-fluid" src="./product_image/'.$item['picture'].'">
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title text-dark">'.$item['prd_name'].'</h5>

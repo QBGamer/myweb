@@ -41,7 +41,7 @@ body{
 }
 
 #img{
-    width: 40%;
+    width: 60%;
 }
 /* #login{
     background-image: url('../images/bg.jpg');
@@ -79,9 +79,10 @@ body{
     max-width: 60%;
 }
 
-#img-view{
-    width:100%;
+#product_img{
+    max-height: 300px;
 }
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -92,12 +93,4 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
-}
-
-#number-box{
-    width: 300px;
-}
-
-#tableimg{
-    width: 35%;
 }

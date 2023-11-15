@@ -40,7 +40,7 @@
     <div class="container-fluid">
         <div class="row row-cols-1 py-5">
             <div class="col ">
-                <div id="cart-data-block" class="card mx-auto">
+                <div id="cart-data-block" class="card mx-auto p-3">
                 </div>
             </div>
         </div>
