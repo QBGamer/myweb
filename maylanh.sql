@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2023 at 11:36 AM
+-- Generation Time: Nov 15, 2023 at 06:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -71,10 +71,9 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `username`, `prd_id`, `num`) VALUES
-(3, 'user', 2, 1),
 (7, 'user', 4, 1),
-(8, 'user', 1, 1),
-(21, 'admin', 3, 5),
+(8, 'user', 1, 2),
+(21, 'admin', 3, 2),
 (22, 'admin', 2, 1);
 
 -- --------------------------------------------------------
@@ -106,9 +105,10 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`prd_id`, `prd_name`, `prd_price`, `prd_pricenew`, `prd_special`, `prd_size`, `prd_inverter`, `prd_color`, `prd_vol`, `prd_speedlvl`, `picture`, `views`, `brand_id`, `type_id`) VALUES
 (1, 'Máy lạnh ngon 1', 10000000, NULL, NULL, '100x100', 'Có', 'light', 300, 3, 'ml.jpg', 6, 1, 3),
-(2, 'Máy lạnh 2', 12000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 227, 1, 2),
+(2, 'Máy lạnh 2', 12000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 228, 1, 2),
 (3, 'Máy lạnh ngon 3', 100000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 19, 2, 3),
-(4, 'Máy lạnh 4', 100000000, NULL, NULL, '100x100', 'Không', 'red', 220, 24, 'ml.jpg', 121, 3, 1);
+(4, 'Máy lạnh 4', 100000000, NULL, NULL, '100x100', 'Không', 'red', 220, 24, 'ml.jpg', 121, 3, 1),
+(15, 'Còn cái nịt', 999999999999, 0, '', '2000x2000', 'Không', 'trắng', 0, 100, '81470e27c43c832ecb8ae883d71a72cd.png', 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -213,7 +213,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prd_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `prd_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `type`
