@@ -88,7 +88,7 @@
 <script>
     $('.btn-addcart').click(function() {
         var id=this.dataset.id;
-        var quantity=document.getElementById('quantity').value;
+        var quantity=document.getElementById('inputbar').value;
         var xmlhttp = new XMLHttpRequest();
         // xmlhttp.onreadystatechange = function() {
         //     if (this.readyState == 4 && this.status == 200) {
