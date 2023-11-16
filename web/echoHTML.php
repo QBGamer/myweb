@@ -45,7 +45,7 @@ function addHeader(){
                 $uname=$_SESSION["username"];
                 echo '<p class="d-none d-lg-inline">'.$uname.'</p></a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow position-absolute">';
-                if(isset($_SESSION['permisson']))
+                if(isset($_SESSION['permission']))
                 {
                     echo '<li><a class="dropdown-item" href="admin.php">Admin</a></li>';
                 }
