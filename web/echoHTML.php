@@ -45,7 +45,7 @@ function addHeader(){
                 $uname=$_SESSION["username"];
                 echo '<p class="d-none d-lg-inline">'.$uname.'</p></a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow position-absolute">';
-                if(isset($_SESSION["permission"]))
+                if(!isset($_SESSION['permisson']))
                 {
                     echo '<li><a class="dropdown-item" href="admin.php">Admin</a></li>';
                 }
@@ -133,5 +133,103 @@ function searchbox(){
                 window.location='shop.php?name='+srname;
             }
             });";
+}
+
+function adminbar(){
+    echo '<nav class="sidebar close">
+                <header>
+                    <div class="image-text">
+                        <span class="image">
+                            <img src="../images/logoblack.png" alt="">
+                        </span>
+                        
+                        <div class="text logo-text">
+                            <span class="name">ShopMayLanh</span>
+                            <span class="profession">HoangBinh</span>
+                        </div>
+                    </div>
+                
+                <i class="bx bx-chevron-right toggle"></i>
+            </header>
+
+            <div class="menu-bar">
+                <div class="menu">
+                    
+                <ul class="menu-links p-0">
+                        <li class="nav-link">
+                            <a href="../index.php">
+                                <i class="bx bx-home-alt icon" ></i>
+                                <span class="text nav-text">Trang Chủ</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="../admin.php">
+                                <i class="bx bx-clipboard icon" ></i>
+                                <span class="text nav-text">Thống kê</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-link qlsp">
+                            <a href="./admin_product.php">
+                                <i class="bx bx-bar-chart-alt-2 icon" ></i>
+                                <span class="text nav-text">Sản Phẩm</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-link">
+                            <a href="./admin_user.php">
+                                <i class="bx bx-user icon"></i>
+                                <span class="text nav-text">Người dùng</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class="bx bx-shopping-bag icon"></i>
+                                <span class="text nav-text">Quản Lí Đơn Hàng</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="./admin_brand.php">
+                                <i class="bx bx-purchase-tag-alt icon"></i>
+                                <span class="text nav-text">Quản Lí Nhãn Hiệu</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-link">
+                            <a href="./admin_type.php">
+                                <i class="bx bx-shape-circle icon"></i>
+                                <span class="text nav-text">Quản Lí Loại SP</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bottom-content">
+                    <li class="">
+                        <a href="../handle/handle_logout.php">
+                            <i class="bx bx-log-out icon"></i>
+                            <span class="text nav-text">Logout</span>
+                        </a>
+                    </li>
+                    
+                    <li class="mode">
+                        <div class="sun-moon">
+                            <i class="bx bx-moon icon moon"></i>
+                            <i class="bx bx-sun icon sun"></i>
+                        </div>
+                        <span class="mode-text text"></span>
+                        
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+                    
+                </div>
+            </div>
+
+            </nav>';
 }
 ?>

@@ -80,4 +80,11 @@ function getproduct($id){
     $result = mysqli_query($conn, $sql);
     return $result;
 }
+
+function getuser(){
+    require "db_con.php";
+    $sql="SELECT * FROM users";
+    $result = mysqli_query($conn,$sql);
+    return $result;
+}
 ?>

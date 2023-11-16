@@ -42,9 +42,9 @@
     <div id="main" class="container">
         <div class="card mt-3">
             <div class="row g-0">
-                <div class="col-4 m-3">
+                <div class="col-4 m-3 d-flex align-items-center">
                     <?php
-                        echo    '<img id="img-view" src="./product_image/'.$productdata['picture'].'" class="border">
+                        echo    '<img id="img" class="rounded mx-auto d-block img border" src="./product_image/'.$productdata['picture'].'" class="border">
                                 </div>
                                 <div class="col-7">
                                     <div class="card-body">
@@ -56,7 +56,7 @@
                             <div id="number-box" class="input-group d-flex justify-content-center">
                                 Số lượng:
                                 <button class="ms-5 input-group-text btn btn-outline-secondary" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
-                                <input id="quantity" type="number" class="form-control" min="1" value="1">
+                                <input id="inputbar" type="number" class="form-control" min="1" value="1">
                                 <button class="input-group-text btn btn-outline-secondary" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
                             </div>
                         </div>

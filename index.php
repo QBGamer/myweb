@@ -76,11 +76,11 @@
     <div class="container">
         <div class="row row-cols-1 row-cols-2 row-cols-3 g-3">
             <div class="col">
-                <div class="card" id="product-box">
+                <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$hotproductdata[0]['prd_id'].'">
-                            <div class="card-img-top bg-img hover-zoom">
-                                <img class="img-fluid" src="./product_image/'.$hotproductdata[0]['picture'].'">
+                            <div class="card-img-top d-flex align-items-center">
+                                <img id="img" class="rounded mx-auto d-block img" src="./product_image/'.$hotproductdata[0]['picture'].'">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-dark">'.$hotproductdata[0]['prd_name'].'</h5>
@@ -92,11 +92,11 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card" id="product-box">
+                <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$hotproductdata[1]['prd_id'].'">
-                            <div class="card-img-top bg-img hover-zoom">
-                                <img class="img-fluid" src="./product_image/'.$hotproductdata[1]['picture'].'">
+                            <div class="card-img-top d-flex align-items-center">
+                                <img id="img" class="rounded mx-auto d-block img" src="./product_image/'.$hotproductdata[1]['picture'].'">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-dark">'.$hotproductdata[1]['prd_name'].'</h5>
@@ -108,11 +108,11 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card" id="product-box">
+                <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$hotproductdata[2]['prd_id'].'">
-                        <div class="card-img-top bg-img hover-zoom">
-                            <img class="img-fluid" src="./product_image/'.$hotproductdata[2]['picture'].'">
+                        <div class="card-img-top d-flex align-items-center">
+                            <img id="img" class="rounded mx-auto d-block img" src="./product_image/'.$hotproductdata[2]['picture'].'">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-dark">'.$hotproductdata[2]['prd_name'].'</h5>
@@ -135,13 +135,13 @@
                 <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$newproductdata[0]['prd_id'].'">
-                        <div id="product-box" class="card-img-top">
-                            <img class="img-fluid" src="./product_image/'.$newproductdata[0]['picture'].'">
+                        <div class="card-img-top d-flex align-items-center">
+                            <img id="img" class="rounded mx-auto d-block img" src="./product_image/'.$newproductdata[0]['picture'].'">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-dark">'.$newproductdata[0]['prd_name'].'</h5>
                             <p class="text-dark">'.$newproductdata[0]['views'].' lượt xem</p>
-                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[0]['prd_price']).' đ</p>
+                            <p class="card-text fs-5 text-danger">'.number_format($newproductdata[0]['prd_price']).' đ</p>
                         </div>
                     </a>';
                 ?>
@@ -151,13 +151,13 @@
                 <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$newproductdata[1]['prd_id'].'">
-                        <div id="product-box" class="card-img-top">
-                            <img class="img-fluid" src="./product_image/'.$newproductdata[1]['picture'].'">
+                        <div class="card-img-top d-flex align-items-center">
+                            <img id="img" class="rounded mx-auto d-block img" src="./product_image/'.$newproductdata[1]['picture'].'">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-dark">'.$newproductdata[1]['prd_name'].'</h5>
                             <p class="text-dark">'.$newproductdata[1]['views'].' lượt xem</p>
-                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[1]['prd_price']).' đ</p>
+                            <p class="card-text fs-5 text-danger">'.number_format($newproductdata[1]['prd_price']).' đ</p>
                         </div>
                     </a>';
                 ?>
@@ -167,13 +167,13 @@
                 <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$newproductdata[2]['prd_id'].'">
-                        <div id="product-box" class="card-img-top">
-                            <img class="img-fluid" src="./product_image/'.$newproductdata[2]['picture'].'">
+                        <div class="card-img-top d-flex align-items-center">
+                            <img id="img" class="rounded mx-auto d-block img" src="./product_image/'.$newproductdata[2]['picture'].'">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-dark">'.$newproductdata[2]['prd_name'].'</h5>
                             <p class="text-dark">'.$newproductdata[2]['views'].' lượt xem</p>
-                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[2]['prd_price']).' đ</p>
+                            <p class="card-text fs-5 text-danger">'.number_format($newproductdata[2]['prd_price']).' đ</p>
                         </div>
                     </a>';
                 ?>

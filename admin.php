@@ -30,7 +30,7 @@
             <header>
                 <div class="image-text">
                     <span class="image">
-                        <img src="logo12.png" alt="">
+                        <img src="./images/logoblack.png" alt="">
                     </span>
                     
                     <div class="text logo-text">
@@ -48,22 +48,29 @@
                 <ul class="menu-links p-0">
                     <li class="nav-link">
                         <a href="./index.php">
-                            <i class='bx bx-home-alt icon' ></i>
+                            <i class="bx bx-home-alt icon" ></i>
                             <span class="text nav-text">Trang Chủ</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="./admin.php">
+                            <i class="bx bx-clipboard icon" ></i>
+                            <span class="text nav-text">Thống kê</span>
                         </a>
                     </li>
                     
                     <li class="nav-link qlsp">
                         <a href="./adminphp/admin_product.php">
                             <i class='bx bx-bar-chart-alt-2 icon' ></i>
-                            <span class="text nav-text">Quản Lí Sản Phẩm</span>
+                            <span class="text nav-text">Sản Phẩm</span>
                         </a>
                     </li>
                     
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Thông Báo</span>
+                        <a href="./adminphp/admin_user.php">
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Người dùng</span>
                         </a>
                     </li>
                     
@@ -73,21 +80,20 @@
                             <span class="text nav-text">Quản Lí Đơn Hàng</span>
                         </a>
                     </li>
-                    
+
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-cart icon'></i>
-                            <span class="text nav-text">Giỏ Hàng</span>
+                        <a href="./adminphp/admin_brand.php">
+                            <i class='bx bx-purchase-tag-alt icon'></i>
+                            <span class="text nav-text">Quản Lí Nhãn Hiệu</span>
                         </a>
                     </li>
                     
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-wallet icon' ></i>
-                            <span class="text nav-text">Quản Lí Thanh Toán</span>
+                        <a href="./adminphp/admin_type.php">
+                            <i class='bx bx-shape-circle icon'></i>
+                            <span class="text nav-text">Quản Lí Loại SP</span>
                         </a>
                     </li>
-                    
                 </ul>
             </div>
             

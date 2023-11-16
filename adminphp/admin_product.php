@@ -6,9 +6,11 @@
     }
     include "../handle/db_con.php";
     include "../handle/handle_sqldata.php";
+    include "../web/echoHTML.php";
     $allbrand=getallbrand(0);
     $alltype=getalltype(0);
     $allprod=getallproduct();
+    // $alluser=getuser();
 ?>
 
 <!DOCTYPE html>
@@ -31,98 +33,12 @@
         <title>Chào Admin</title> 
     </head>
     <body>
-        <nav class="sidebar close">
-            <header>
-                <div class="image-text">
-                    <span class="image">
-                        <img src="logo12.png" alt="">
-                    </span>
-                    
-                    <div class="text logo-text">
-                        <span class="name">ShopMayLanh</span>
-                        <span class="profession">HoangBinh</span>
-                    </div>
-                </div>
-            
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-        
-        <div class="menu-bar">
-            <div class="menu">
-                
-                <ul class="menu-links p-0">
-                    <li class="nav-link">
-                        <a href="./index.php">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Trang Chủ</span>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-link qlsp">
-                        <a>
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
-                            <span class="text nav-text">Quản Lí Sản Phẩm</span>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Thông Báo</span>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-shopping-bag icon'></i>
-                            <span class="text nav-text">Quản Lí Đơn Hàng</span>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-cart icon'></i>
-                            <span class="text nav-text">Giỏ Hàng</span>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-wallet icon' ></i>
-                            <span class="text nav-text">Quản Lí Thanh Toán</span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-            
-            <div class="bottom-content">
-                <li class="">
-                    <a href="../handle/handle_logout.php">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-                
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text"></span>
-                    
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-                
-            </div>
-        </div>
-        
-    </nav>
+        <?php
+            adminbar();
+        ?>
     <section class="home">
-        <div class="container-fluid">
-            <div class="container-fluid bg-light px-3 mt-5">
+        <div class="container">
+            <div class="card bg-light px-3 mt-5">
                 <div class="row border">
                     <div class="col text-center align-self-center">
                         <!-- Button trigger modal -->
@@ -155,7 +71,7 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="form-label text-start">Ảnh sản phẩm:</div>
-                                                    <input type="file" class="form-control" name="img" accept=".png,.jpg,.jpeg">
+                                                    <input type="file" class="form-control" name="img" accept="image/*">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -182,10 +98,6 @@
                                                 <div class="col">
                                                     <div class="form-label text-start">Giá:</div>
                                                     <input type="number" min=0 class="form-control" name="price">
-                                                </div>
-                                                <div class="col">
-                                                    <div class="form-label text-start">%Khuyến mãi:</div>
-                                                    <input type="number" min=0 max=100 class="form-control" name="newprice">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -237,7 +149,6 @@
                     <div class="col align-self-center">Thương Hiệu</div>
                     <div class="col align-self-center">Loại</div>
                     <div class="col align-self-center">Giá</div>
-                    <div class="col align-self-center">%KM</div>
                     <div class="col-2 text-center align-self-center">Tính Năng Đặt Biệt</div>
                     <div class="col text-center align-self-center">Kích Thước</div>
                     <div class="col text-center align-self-center">Inverter</div>

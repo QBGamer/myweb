@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2023 at 06:05 AM
+-- Generation Time: Nov 16, 2023 at 11:29 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -105,10 +105,9 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`prd_id`, `prd_name`, `prd_price`, `prd_pricenew`, `prd_special`, `prd_size`, `prd_inverter`, `prd_color`, `prd_vol`, `prd_speedlvl`, `picture`, `views`, `brand_id`, `type_id`) VALUES
 (1, 'Máy lạnh ngon 1', 10000000, NULL, NULL, '100x100', 'Có', 'light', 300, 3, 'ml.jpg', 6, 1, 3),
-(2, 'Máy lạnh 2', 12000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 228, 1, 2),
+(2, 'Máy lạnh 2', 12000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 231, 1, 2),
 (3, 'Máy lạnh ngon 3', 100000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 19, 2, 3),
-(4, 'Máy lạnh 4', 100000000, NULL, NULL, '100x100', 'Không', 'red', 220, 24, 'ml.jpg', 121, 3, 1),
-(15, 'Còn cái nịt', 999999999999, 0, '', '2000x2000', 'Không', 'trắng', 0, 100, '81470e27c43c832ecb8ae883d71a72cd.png', 1, 1, 2);
+(4, 'Máy lạnh 4', 100000000, NULL, NULL, '100x100', 'Không', 'red', 220, 24, 'ml.jpg', 121, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -150,8 +149,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `password`, `phonenumber`, `mail`, `address`, `permission`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', '', '', '', b'1'),
-('user', '25d55ad283aa400af464c76d713c07ad', '1234567890', 'user@user.com', 'Ở đâu đó không biết', NULL);
+('admin', '21232f297a57a5a743894a0e4a801fc3', NULL, NULL, NULL, b'1'),
+('user', '25f9e794323b453885f5181f1b624d0b', '1231231231', 'toilaai@gg.com', 'Ở đâu ko biết nữa', NULL),
+('user1', '25f9e794323b453885f5181f1b624d0b', '1231231231', 'toilaai@gg.com', 'chịu', NULL),
+('user2', '25f9e794323b453885f5181f1b624d0b', '1231231231', 'toilaai@gg.com', 'Ở đâu ko biết nữa', NULL);
 
 --
 -- Indexes for dumped tables
@@ -201,7 +202,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `brand_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `brand_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -213,13 +214,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prd_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `prd_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `type`
 --
 ALTER TABLE `type`
-  MODIFY `type_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `type_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

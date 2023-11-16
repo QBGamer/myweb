@@ -121,8 +121,8 @@
                       echo '<div class="col">
                             <div class="card">
                               <a class="text-decoration-none" href="view.php?id='.$item['prd_id'].'">
-                                <div id="product-box" class="card-img-top bg-img hover-zoom">
-                                    <img id="product_img" class="img-fluid" src="./product_image/'.$item['picture'].'">
+                                <div class="card-img-top d-flex align-items-center">
+                                  <img id="img" class="rounded mx-auto d-block img" src="./product_image/'.$item['picture'].'">
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title text-dark">'.$item['prd_name'].'</h5>

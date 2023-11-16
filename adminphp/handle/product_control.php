@@ -1,4 +1,6 @@
 <?php
+session_start();
+if(isset($_SESSION['permission'])){
     include "../../handle/db_con.php";
     include "../../handle/handle_sqldata.php";
 
@@ -84,8 +86,8 @@
             prd_vol,prd_speedlvl,picture,brand_id,type_id) VALUES ('$pname','$price','$km','$special','$size','$inverter','$color','$vol'
             ,'$wind','$fname','$brand','$type')";
         }
-        mysqli_query($conn,$sql);
         // var_dump($sql);
+        mysqli_query($conn,$sql);
         header("Location: ../admin_product.php");
         exit();
     }
@@ -98,14 +100,13 @@
     foreach($allproduct as $item){
         $brand=mysqli_fetch_array(getallbrand($item['brand_id']));
         $type=mysqli_fetch_array(getalltype($item['type_id']));
-        echo '<div class="row py-3 border">
+        echo '<div class="row py-3">
                 <div class="col text-center align-self-center"><button type="button" class="btn btn-danger" data-id="'.$item['prd_id'].'" onclick="delProduct(this)">X</button></div>
                 <div class="col align-self-center">'.$item['prd_id'].'</div>
                 <div id="#product-box" class="col-2 align-self-center"><img id="tableimg" class="border" src="../product_image/'.$item['picture'].'">'.$item['prd_name'].'</div>
                 <div class="col align-self-center">'.$brand['brand_name'].'</div>
                 <div class="col align-self-center">'.$type['type_name'].'</div>
                 <div class="col align-self-center">'.number_format($item['prd_price']).'</div>
-                <div class="col align-self-center">'.$item['prd_pricenew'].'</div>
                 <div class="col-2 align-self-center">'.$item['prd_special'].'</div>
                 <div class="col align-self-center">'.$item['prd_size'].'</div>
                 <div class="col align-self-center">'.$item['prd_inverter'].'</div>
@@ -116,4 +117,5 @@
             </div>';
     }
     echo '</div>';
+}
 ?>

@@ -40,9 +40,9 @@ body{
     height: 800px;
 }
 
-#img{
+/* #img{
     width: 60%;
-}
+} */
 /* #login{
     background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
@@ -75,12 +75,17 @@ body{
     max-width: 60%;
 }
 
-#item-view{
+/* #item-view{
     max-width: 60%;
+} */
+#inputbar{
+    width: 20%;
 }
 
-#product_img{
+#img{
     max-height: 300px;
+    min-height: 300px;
+    max-width: 300px;
 }
 
 
