@@ -126,9 +126,12 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title text-dark">'.$item['prd_name'].'</h5>
-                                    <p class="text-dark">'.$item['views'].' lượt xem</p>
-                            <p class="card-text fs-5 text-danger">'.number_format($item['prd_price']).' đ</p>
-                                </div>
+                                    <p class="text-dark">'.$item['views'].' lượt xem</p>';
+                            if($item['prd_pricenew']!=NULL)
+                              echo  '<span class="card-text fs-5 text-danger">'.number_format($item['prd_price']-($item['prd_price']*$item['prd_pricenew']/100)).' đ </span><span class="card-text fs-6 text-dark text-decoration-line-through">'.number_format($item['prd_price']).' đ</span>';
+                            else
+                              echo '<span class="card-text fs-5 text-dark">'.number_format($item['prd_price']).' đ</span>';
+                            echo    '</div>
                             </div>
                             </a>
                         </div>';

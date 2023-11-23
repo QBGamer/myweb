@@ -62,7 +62,7 @@
             document.getElementById("cart-data-block").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","./handle/cart/handle_cart.php",true);
+        xmlhttp.open("GET","./handle/handle_cart.php",true);
         xmlhttp.send();
     }
     function controlCart(obj){
@@ -74,7 +74,7 @@
             document.getElementById("cart-data-block").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","./handle/cart/handle_cart.php?id="+id+"&type="+type,true);
+        xmlhttp.open("GET","./handle/handle_cart.php?id="+id+"&type="+type,true);
         xmlhttp.send();
     };
 </script>

@@ -1,10 +1,12 @@
 <?php
     session_start();
-    require "../db_con.php";
+    require "./db_con.php";
     if(isset($_SESSION["username"])){
-        include "../handle_sqldata.php";
+        include "./handle_sqldata.php";
         $id=$_GET['id'];
         $quantity=$_GET['quantity'];
+        if($quantity<0)
+            $quantity=abs($quantity);
         $uname=$_SESSION["username"];
         $result=getusercart($uname,$id);
         if(mysqli_num_rows($result)==1){

@@ -74,8 +74,8 @@
 <div id="hot-product" class="py-5 bg-light">
     <h1 class="text-center pb-3">Các sản phẩm được quan tâm</h1>
     <div class="container">
-        <div class="row row-cols-1 row-cols-2 row-cols-3 g-3">
-            <div class="col">
+        <div class="row row-cols-1 row-cols-lg-2 row-cols-lg-3 g-3">
+            <div class="col mt-2">
                 <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$hotproductdata[0]['prd_id'].'">
@@ -84,14 +84,17 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-dark">'.$hotproductdata[0]['prd_name'].'</h5>
-                                <p class="text-dark">'.$hotproductdata[0]['views'].' lượt xem</p>
-                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[0]['prd_price']).' đ</p>
-                            </div>
+                                <p class="text-dark">'.$hotproductdata[0]['views'].' lượt xem</p>';
+                            if($hotproductdata[0]['prd_pricenew']!=NULL)
+                                echo '<span class="fs-4 text-danger">'.number_format($hotproductdata[0]['prd_price']-($hotproductdata[0]['prd_price']*$hotproductdata[0]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($hotproductdata[0]['prd_price']).' đ</span>';
+                            else
+                                echo '<span class="color-danger text-black fs-4">'.number_format($hotproductdata[0]['prd_price']).' đ</span>';
+                            echo '</div>
                         </a>';
                 ?>
                 </div>
             </div>
-            <div class="col">
+            <div class="col mt-2">
                 <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$hotproductdata[1]['prd_id'].'">
@@ -100,14 +103,17 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-dark">'.$hotproductdata[1]['prd_name'].'</h5>
-                                <p class="text-dark">'.$hotproductdata[1]['views'].' lượt xem</p>
-                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[1]['prd_price']).' đ</p>
-                            </div>
+                                <p class="text-dark">'.$hotproductdata[1]['views'].' lượt xem</p>';
+                            if($hotproductdata[1]['prd_pricenew']!=NULL)
+                                echo '<span class="fs-4 text-danger">'.number_format($hotproductdata[1]['prd_price']-($hotproductdata[1]['prd_price']*$hotproductdata[1]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($hotproductdata[1]['prd_price']).' đ</span>';
+                            else
+                                echo '<span class="color-danger text-black fs-4">'.number_format($hotproductdata[1]['prd_price']).' đ</span>';
+                            echo '</div>
                         </a>';
                 ?>
                 </div>
             </div>
-            <div class="col">
+            <div class="col mt-2">
                 <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$hotproductdata[2]['prd_id'].'">
@@ -116,9 +122,12 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-dark">'.$hotproductdata[2]['prd_name'].'</h5>
-                            <p class="text-dark">'.$hotproductdata[2]['views'].' lượt xem</p>
-                            <p class="card-text fs-5 text-danger">'.number_format($hotproductdata[2]['prd_price']).' đ</p>
-                        </div>
+                            <p class="text-dark">'.$hotproductdata[2]['views'].' lượt xem</p>';
+                            if($hotproductdata[2]['prd_pricenew']!=NULL)
+                                echo '<span class="fs-4 text-danger">'.number_format($hotproductdata[2]['prd_price']-($hotproductdata[2]['prd_price']*$hotproductdata[2]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($hotproductdata[2]['prd_price']).' đ</span>';
+                            else
+                                echo '<span class="color-danger text-black fs-4">'.number_format($hotproductdata[2]['prd_price']).' đ</span>';
+                            echo '</div>
                         </a>';
                 ?>
                 </div>
@@ -130,8 +139,8 @@
 <div id="new-product" class="py-5 bg-light">
     <h1 class="text-center pb-3">Các sản phẩm mới</h1>
     <div class="container">
-        <div class="row row-cols-1 row-cols-2 row-cols-3 g-3">
-            <div class="col">
+        <div class="row row-cols-1 row-cols-lg-2 row-cols-lg-3 g-3">
+            <div class="col mt-2">
                 <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$newproductdata[0]['prd_id'].'">
@@ -140,14 +149,17 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-dark">'.$newproductdata[0]['prd_name'].'</h5>
-                            <p class="text-dark">'.$newproductdata[0]['views'].' lượt xem</p>
-                            <p class="card-text fs-5 text-danger">'.number_format($newproductdata[0]['prd_price']).' đ</p>
-                        </div>
-                    </a>';
+                            <p class="text-dark">'.$newproductdata[0]['views'].' lượt xem</p>';
+                            if($newproductdata[0]['prd_pricenew']!=NULL)
+                                echo '<span class="fs-4 text-danger">'.number_format($newproductdata[0]['prd_price']-($newproductdata[0]['prd_price']*$newproductdata[0]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($newproductdata[0]['prd_price']).' đ</span>';
+                            else
+                                echo '<span class="color-danger text-black fs-4">'.number_format($newproductdata[0]['prd_price']).' đ</span>';
+                            echo '</div>
+                        </a>';
                 ?>
                 </div>
             </div>
-            <div class="col">
+            <div class="col mt-2">
                 <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$newproductdata[1]['prd_id'].'">
@@ -156,14 +168,17 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-dark">'.$newproductdata[1]['prd_name'].'</h5>
-                            <p class="text-dark">'.$newproductdata[1]['views'].' lượt xem</p>
-                            <p class="card-text fs-5 text-danger">'.number_format($newproductdata[1]['prd_price']).' đ</p>
-                        </div>
-                    </a>';
+                            <p class="text-dark">'.$newproductdata[1]['views'].' lượt xem</p>';
+                            if($newproductdata[1]['prd_pricenew']!=NULL)
+                                echo '<span class="fs-4 text-danger">'.number_format($newproductdata[1]['prd_price']-($newproductdata[1]['prd_price']*$newproductdata[1]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($newproductdata[1]['prd_price']).' đ</span>';
+                            else
+                                echo '<span class="color-danger text-black fs-4">'.number_format($newproductdata[1]['prd_price']).' đ</span>';
+                            echo '</div>
+                        </a>';
                 ?>
                 </div>
             </div>
-            <div class="col">
+            <div class="col mt-2">
                 <div class="card">
                 <?php
                     echo '<a class="text-decoration-none" href="view.php?id='.$newproductdata[2]['prd_id'].'">
@@ -172,10 +187,13 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-dark">'.$newproductdata[2]['prd_name'].'</h5>
-                            <p class="text-dark">'.$newproductdata[2]['views'].' lượt xem</p>
-                            <p class="card-text fs-5 text-danger">'.number_format($newproductdata[2]['prd_price']).' đ</p>
-                        </div>
-                    </a>';
+                            <p class="text-dark">'.$newproductdata[2]['views'].' lượt xem</p>';
+                            if($newproductdata[2]['prd_pricenew']!=NULL)
+                                echo '<span class="fs-4 text-danger">'.number_format($newproductdata[2]['prd_price']-($newproductdata[2]['prd_price']*$newproductdata[2]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($newproductdata[2]['prd_price']).' đ</span>';
+                            else
+                                echo '<span class="color-danger text-black fs-4">'.number_format($newproductdata[2]['prd_price']).' đ</span>';
+                            echo '</div>
+                        </a>';
                 ?>
                 </div>
             </div>
