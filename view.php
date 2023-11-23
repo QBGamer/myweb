@@ -104,35 +104,35 @@
                         </div>
                         <?php
                         echo    '<div class="row">
-                                <div class="col-3 fw-bold">Thương hiệu:</div>
+                                <div class="col-5 col-lg-4 fw-bold">Thương hiệu:</div>
                                 <div class="col">'.$brand['brand_name'].'</div>
                             </div>
                             <div class="row">
-                                <div class="col-3 fw-bold">Loại:</div>
+                                <div class="col-5 col-lg-4 fw-bold">Loại:</div>
                                 <div class="col">'.$type['type_name'].'</div>
                             </div>
                             <div class="row">
-                                <div class="col-3 fw-bold">Tính năng nổi bật:</div>
+                                <div class="col-5 col-lg-4 fw-bold">Tính năng nổi bật:</div>
                                 <div class="col">'.$productdata['prd_special'].'</div>
                             </div>
                             <div class="row">
-                                <div class="col-3 fw-bold">Kích thước:</div>
+                                <div class="col-5 col-lg-4 fw-bold">Kích thước:</div>
                                 <div class="col">'.$productdata['prd_size'].'</div>
                             </div>
                             <div class="row">
-                                <div class="col-3 fw-bold">Màu:</div>
+                                <div class="col-5 col-lg-4 fw-bold">Màu:</div>
                                 <div class="col">'.$productdata['prd_color'].'</div>
                             </div>
                             <div class="row">
-                                <div class="col-3 fw-bold">Điện áp tiêu thụ:</div>
+                                <div class="col-5 col-lg-4 fw-bold">Điện áp tiêu thụ:</div>
                                 <div class="col">'.$productdata['prd_vol'].'</div>
                             </div>
                             <div class="row">
-                                <div class="col-3 fw-bold">Cấp làm mát:</div>
+                                <div class="col-5 col-lg-4 fw-bold">Cấp làm mát:</div>
                                 <div class="col">'.$productdata['prd_speedlvl'].'</div>
                             </div>
                             <div class="row">
-                                <div class="col-3 fw-bold">Inverter:</div>
+                                <div class="col-5 col-lg-4 fw-bold">Inverter:</div>
                                 <div class="col">'.$productdata['prd_inverter'].'</div>
                             </div>
                             <div class="d-flex mt-3">
