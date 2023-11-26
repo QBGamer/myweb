@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2023 at 11:29 AM
+-- Generation Time: Nov 26, 2023 at 04:26 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,9 +29,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bill` (
   `bil_id` int(10) NOT NULL,
+  `date` datetime NOT NULL,
   `username` varchar(100) NOT NULL,
-  `prd_id` int(10) NOT NULL
+  `phone` varchar(10) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `total` float NOT NULL,
+  `stats` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`bil_id`, `date`, `username`, `phone`, `mail`, `address`, `total`, `stats`) VALUES
+(11, '2023-11-26 13:46:43', 'user', '1234567890', 'binh@gmail.com', 'ABCDEF', 108000000000, 0),
+(12, '2023-11-26 13:49:24', 'user', '1234567890', 'binh@gmail.com', 'ABCDEF', 109200000000, 1),
+(13, '2023-11-26 14:53:01', 'admin', '', '', '', 130000000000, 2);
 
 -- --------------------------------------------------------
 
@@ -66,15 +80,28 @@ CREATE TABLE `cart` (
   `num` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `cart`
+-- Table structure for table `item_bill`
 --
 
-INSERT INTO `cart` (`cart_id`, `username`, `prd_id`, `num`) VALUES
-(7, 'user', 4, 1),
-(8, 'user', 1, 2),
-(21, 'admin', 3, 2),
-(22, 'admin', 2, 1);
+CREATE TABLE `item_bill` (
+  `bill_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `num` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `item_bill`
+--
+
+INSERT INTO `item_bill` (`bill_id`, `item_id`, `num`) VALUES
+(11, 2, 10),
+(12, 2, 10),
+(12, 3, 12),
+(13, 3, 4),
+(13, 2, 12);
 
 -- --------------------------------------------------------
 
@@ -95,8 +122,8 @@ CREATE TABLE `product` (
   `prd_speedlvl` int(10) NOT NULL,
   `picture` varchar(100) NOT NULL,
   `views` int(11) NOT NULL DEFAULT 0,
-  `brand_id` int(10) NOT NULL,
-  `type_id` int(10) NOT NULL
+  `brand_id` int(10) DEFAULT NULL,
+  `type_id` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -105,9 +132,9 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`prd_id`, `prd_name`, `prd_price`, `prd_pricenew`, `prd_special`, `prd_size`, `prd_inverter`, `prd_color`, `prd_vol`, `prd_speedlvl`, `picture`, `views`, `brand_id`, `type_id`) VALUES
 (1, 'Máy lạnh ngon 1', 10000000, NULL, NULL, '100x100', 'Có', 'light', 300, 3, 'ml.jpg', 6, 1, 3),
-(2, 'Máy lạnh 2', 12000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 231, 1, 2),
-(3, 'Máy lạnh ngon 3', 100000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 19, 2, 3),
-(4, 'Máy lạnh 4', 100000000, NULL, NULL, '100x100', 'Không', 'red', 220, 24, 'ml.jpg', 121, 3, 1);
+(2, 'Máy lạnh 2', 12000000000, 10, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 323, 1, 2),
+(3, 'Máy lạnh ngon 3', 100000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 33, 2, 3),
+(4, 'Máy lạnh 4', 100000000, NULL, NULL, '100x100', 'Không', 'red', 220, 24, 'ml.jpg', 125, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -150,9 +177,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`username`, `password`, `phonenumber`, `mail`, `address`, `permission`) VALUES
 ('admin', '21232f297a57a5a743894a0e4a801fc3', NULL, NULL, NULL, b'1'),
-('user', '25f9e794323b453885f5181f1b624d0b', '1231231231', 'toilaai@gg.com', 'Ở đâu ko biết nữa', NULL),
-('user1', '25f9e794323b453885f5181f1b624d0b', '1231231231', 'toilaai@gg.com', 'chịu', NULL),
-('user2', '25f9e794323b453885f5181f1b624d0b', '1231231231', 'toilaai@gg.com', 'Ở đâu ko biết nữa', NULL);
+('user', '25d55ad283aa400af464c76d713c07ad', '1234567890', 'binh@gmail.com', 'ABCDEF', NULL);
 
 --
 -- Indexes for dumped tables
@@ -162,7 +187,8 @@ INSERT INTO `users` (`username`, `password`, `phonenumber`, `mail`, `address`, `
 -- Indexes for table `bill`
 --
 ALTER TABLE `bill`
-  ADD PRIMARY KEY (`bil_id`);
+  ADD PRIMARY KEY (`bil_id`),
+  ADD KEY `FK_BILL_User` (`username`);
 
 --
 -- Indexes for table `brand`
@@ -174,13 +200,24 @@ ALTER TABLE `brand`
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`cart_id`);
+  ADD PRIMARY KEY (`cart_id`),
+  ADD KEY `FK_user` (`username`),
+  ADD KEY `FK_Cart_Prd` (`prd_id`);
+
+--
+-- Indexes for table `item_bill`
+--
+ALTER TABLE `item_bill`
+  ADD KEY `FK_BILL_BILL` (`bill_id`),
+  ADD KEY `FK_PRD` (`item_id`);
 
 --
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`prd_id`);
+  ADD PRIMARY KEY (`prd_id`),
+  ADD KEY `FK_brand` (`brand_id`),
+  ADD KEY `FK_type` (`type_id`);
 
 --
 -- Indexes for table `type`
@@ -199,6 +236,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bill`
+--
+ALTER TABLE `bill`
+  MODIFY `bil_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
@@ -208,7 +251,7 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -221,6 +264,37 @@ ALTER TABLE `product`
 --
 ALTER TABLE `type`
   MODIFY `type_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `bill`
+--
+ALTER TABLE `bill`
+  ADD CONSTRAINT `FK_BILL_User` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `FK_Cart_Prd` FOREIGN KEY (`prd_id`) REFERENCES `product` (`prd_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_user` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `item_bill`
+--
+ALTER TABLE `item_bill`
+  ADD CONSTRAINT `FK_BILL_BILL` FOREIGN KEY (`bill_id`) REFERENCES `bill` (`bil_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_PRD` FOREIGN KEY (`item_id`) REFERENCES `product` (`prd_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `FK_brand` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`brand_id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `FK_type` FOREIGN KEY (`type_id`) REFERENCES `type` (`type_id`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
