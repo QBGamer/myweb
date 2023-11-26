@@ -86,7 +86,8 @@
                                 <h5 class="card-title text-dark">'.$hotproductdata[0]['prd_name'].'</h5>
                                 <p class="text-dark">'.$hotproductdata[0]['views'].' lượt xem</p>';
                             if($hotproductdata[0]['prd_pricenew']!=NULL)
-                                echo '<span class="fs-4 text-danger">'.number_format($hotproductdata[0]['prd_price']-($hotproductdata[0]['prd_price']*$hotproductdata[0]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($hotproductdata[0]['prd_price']).' đ</span>';
+                                echo '<div class="badge bg-danger position-absolute" style="top: 0.5rem; right: 0.5rem">-'.$hotproductdata[0]['prd_pricenew'].'%</div>
+                            <span class="fs-4 text-danger">'.number_format($hotproductdata[0]['prd_price']-($hotproductdata[0]['prd_price']*$hotproductdata[0]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($hotproductdata[0]['prd_price']).' đ</span>';
                             else
                                 echo '<span class="color-danger text-black fs-4">'.number_format($hotproductdata[0]['prd_price']).' đ</span>';
                             echo '</div>
@@ -105,7 +106,8 @@
                                 <h5 class="card-title text-dark">'.$hotproductdata[1]['prd_name'].'</h5>
                                 <p class="text-dark">'.$hotproductdata[1]['views'].' lượt xem</p>';
                             if($hotproductdata[1]['prd_pricenew']!=NULL)
-                                echo '<span class="fs-4 text-danger">'.number_format($hotproductdata[1]['prd_price']-($hotproductdata[1]['prd_price']*$hotproductdata[1]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($hotproductdata[1]['prd_price']).' đ</span>';
+                                echo '<div class="badge bg-danger position-absolute" style="top: 0.5rem; right: 0.5rem">-'.$hotproductdata[1]['prd_pricenew'].'%</div>
+                            <span class="fs-4 text-danger">'.number_format($hotproductdata[1]['prd_price']-($hotproductdata[1]['prd_price']*$hotproductdata[1]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($hotproductdata[1]['prd_price']).' đ</span>';
                             else
                                 echo '<span class="color-danger text-black fs-4">'.number_format($hotproductdata[1]['prd_price']).' đ</span>';
                             echo '</div>
@@ -124,7 +126,8 @@
                             <h5 class="card-title text-dark">'.$hotproductdata[2]['prd_name'].'</h5>
                             <p class="text-dark">'.$hotproductdata[2]['views'].' lượt xem</p>';
                             if($hotproductdata[2]['prd_pricenew']!=NULL)
-                                echo '<span class="fs-4 text-danger">'.number_format($hotproductdata[2]['prd_price']-($hotproductdata[2]['prd_price']*$hotproductdata[2]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($hotproductdata[2]['prd_price']).' đ</span>';
+                                echo '<div class="badge bg-danger position-absolute" style="top: 0.5rem; right: 0.5rem">-'.$hotproductdata[2]['prd_pricenew'].'%</div>
+                            <span class="fs-4 text-danger">'.number_format($hotproductdata[2]['prd_price']-($hotproductdata[2]['prd_price']*$hotproductdata[2]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($hotproductdata[2]['prd_price']).' đ</span>';
                             else
                                 echo '<span class="color-danger text-black fs-4">'.number_format($hotproductdata[2]['prd_price']).' đ</span>';
                             echo '</div>
@@ -151,7 +154,8 @@
                             <h5 class="card-title text-dark">'.$newproductdata[0]['prd_name'].'</h5>
                             <p class="text-dark">'.$newproductdata[0]['views'].' lượt xem</p>';
                             if($newproductdata[0]['prd_pricenew']!=NULL)
-                                echo '<span class="fs-4 text-danger">'.number_format($newproductdata[0]['prd_price']-($newproductdata[0]['prd_price']*$newproductdata[0]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($newproductdata[0]['prd_price']).' đ</span>';
+                                echo '<div class="badge bg-danger position-absolute" style="top: 0.5rem; right: 0.5rem">-'.$newproductdata[0]['prd_pricenew'].'%</div>
+                            <span class="fs-4 text-danger">'.number_format($newproductdata[0]['prd_price']-($newproductdata[0]['prd_price']*$newproductdata[0]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($newproductdata[0]['prd_price']).' đ</span>';
                             else
                                 echo '<span class="color-danger text-black fs-4">'.number_format($newproductdata[0]['prd_price']).' đ</span>';
                             echo '</div>
@@ -170,7 +174,8 @@
                             <h5 class="card-title text-dark">'.$newproductdata[1]['prd_name'].'</h5>
                             <p class="text-dark">'.$newproductdata[1]['views'].' lượt xem</p>';
                             if($newproductdata[1]['prd_pricenew']!=NULL)
-                                echo '<span class="fs-4 text-danger">'.number_format($newproductdata[1]['prd_price']-($newproductdata[1]['prd_price']*$newproductdata[1]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($newproductdata[1]['prd_price']).' đ</span>';
+                                echo '<div class="badge bg-danger position-absolute" style="top: 0.5rem; right: 0.5rem">-'.$newproductdata[1]['prd_pricenew'].'%</div>
+                            <span class="fs-4 text-danger">'.number_format($newproductdata[1]['prd_price']-($newproductdata[1]['prd_price']*$newproductdata[1]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($newproductdata[1]['prd_price']).' đ</span>';
                             else
                                 echo '<span class="color-danger text-black fs-4">'.number_format($newproductdata[1]['prd_price']).' đ</span>';
                             echo '</div>
@@ -189,7 +194,8 @@
                             <h5 class="card-title text-dark">'.$newproductdata[2]['prd_name'].'</h5>
                             <p class="text-dark">'.$newproductdata[2]['views'].' lượt xem</p>';
                             if($newproductdata[2]['prd_pricenew']!=NULL)
-                                echo '<span class="fs-4 text-danger">'.number_format($newproductdata[2]['prd_price']-($newproductdata[2]['prd_price']*$newproductdata[2]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($newproductdata[2]['prd_price']).' đ</span>';
+                                echo '<div class="badge bg-danger position-absolute" style="top: 0.5rem; right: 0.5rem">-'.$newproductdata[2]['prd_pricenew'].'%</div>
+                            <span class="fs-4 text-danger">'.number_format($newproductdata[2]['prd_price']-($newproductdata[2]['prd_price']*$newproductdata[2]['prd_pricenew']/100)).' đ </span><span class="text-decoration-line-through text-dark">'.number_format($newproductdata[2]['prd_price']).' đ</span>';
                             else
                                 echo '<span class="color-danger text-black fs-4">'.number_format($newproductdata[2]['prd_price']).' đ</span>';
                             echo '</div>

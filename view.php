@@ -153,15 +153,20 @@
 <script>
     $('.btn-addcart').click(function() {
         var id=this.dataset.id;
-        var quantity=document.getElementById('inputbar').value;
-        var xmlhttp = new XMLHttpRequest();
-        // xmlhttp.onreadystatechange = function() {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //     document.getElementById("cart-data-block").innerHTML = this.responseText;
-        //     }
-        // };
-        xmlhttp.open("GET","./handle/add_to_cart.php?id="+id+"&quantity="+quantity,true);
-        xmlhttp.send();
+        <?php
+            if(!isset($_SESSION['username']))
+                echo 'window.location="login.php"';
+            else
+                echo 'var quantity=document.getElementById("inputbar").value;
+                var xmlhttp = new XMLHttpRequest();
+                // xmlhttp.onreadystatechange = function() {
+                //     if (this.readyState == 4 && this.status == 200) {
+                //     document.getElementById("cart-data-block").innerHTML = this.responseText;
+                //     }
+                // };
+                xmlhttp.open("GET","./handle/add_to_cart.php?id="+id+"&quantity="+quantity,true);
+                xmlhttp.send();';
+        ?>
     });
     $('.search-filter').click(function(){
         var thisurl=window.location.search;

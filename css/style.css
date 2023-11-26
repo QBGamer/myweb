@@ -5,6 +5,9 @@ body{
     background-attachment: fixed;
     background-size: 100% 100%; */
 }
+#body{
+    min-height: 900px;
+}
 
 #logo{
     width: 150px;

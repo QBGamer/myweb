@@ -41,11 +41,11 @@
 <?php
     addHeader();
 ?>
-<div class="container-fluid">
+<div id="body" class="container-fluid">
+  <button type="button" class="btn fs-1" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="sidebar_shop btn_show_lable"><i class="bi-list-columns-reverse"></i> <span class="collapse multi-collapse show" id="btn_show_lable"">Danh mục<span></button>
   <div class="row flex-nowrap">
-      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark-subtle">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 border-end border-top collapse multi-collapse show" id="sidebar_shop">
           <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-dark min-vh-100">
-              <h1><i class="bi-list"></i> Danh mục</h1>
               <ul class="nav nav-pills flex-column">
                   <li>
                     <p class="fs-3 mt-1">Thương hiệu</p>
@@ -113,7 +113,7 @@
       <div class="col py-3">
 
         <!-- item trang shop here -->
-        <div id="shop-product" class="py-5 bg-light">
+        <div id="shop-product" class="py-5">
           <div class="container">
               <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-lg-4 g-3">
                   <?php
@@ -128,7 +128,8 @@
                                     <h5 class="card-title text-dark">'.$item['prd_name'].'</h5>
                                     <p class="text-dark">'.$item['views'].' lượt xem</p>';
                             if($item['prd_pricenew']!=NULL)
-                              echo  '<span class="card-text fs-5 text-danger">'.number_format($item['prd_price']-($item['prd_price']*$item['prd_pricenew']/100)).' đ </span><span class="card-text fs-6 text-dark text-decoration-line-through">'.number_format($item['prd_price']).' đ</span>';
+                              echo  '<div class="badge bg-danger position-absolute" style="top: 0.5rem; right: 0.5rem">-'.$item['prd_pricenew'].'%</div>
+                            <span class="card-text fs-5 text-danger">'.number_format($item['prd_price']-($item['prd_price']*$item['prd_pricenew']/100)).' đ </span><span class="card-text fs-6 text-dark text-decoration-line-through">'.number_format($item['prd_price']).' đ</span>';
                             else
                               echo '<span class="card-text fs-5 text-dark">'.number_format($item['prd_price']).' đ</span>';
                             echo    '</div>
@@ -139,7 +140,7 @@
                   ?>
               </div>
           </div>
-      </div>
+        </div>
 
       </div>
   </div>

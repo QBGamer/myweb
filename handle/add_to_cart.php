@@ -16,5 +16,8 @@
         }
         // var_dump($sql);
         mysqli_query($conn,$sql);
+    }else{
+        header("Location: ../login.php");
+        exit();
     }
 ?>
