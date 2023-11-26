@@ -29,6 +29,9 @@
     if(mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['username'] = $row['username'];
+        $_SESSION['phonenumber']=$row['phonenumber'];
+        $_SESSION['address']=$row['address'];
+        $_SESSION['mail']=$row['mail'];
         $_SESSION['permission'] = $row['permission'];
         header("Location: ../index.php");
         exit();

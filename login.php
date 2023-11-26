@@ -30,7 +30,7 @@
 <div id="login" class="container-fluid">
     <div class="py-5">
         <div class="container d-flex justify-content-center">
-            <div id="login-box" class="card p-2">
+            <div class="card p-3">
                 <form action="./handle/handle_login.php" method="post">
                     <p class="fs-1"><i class="bi-box-arrow-in-right pe-3"></i> Đăng nhập</p>
                     <div class="mb-3">

@@ -149,12 +149,11 @@
                     <div class="col align-self-center">Thương Hiệu</div>
                     <div class="col align-self-center">Loại</div>
                     <div class="col align-self-center">Giá</div>
-                    <div class="col-2 text-center align-self-center">Tính Năng Đặt Biệt</div>
+                    <div class="col align-self-center">%K Mãi</div>
                     <div class="col text-center align-self-center">Kích Thước</div>
                     <div class="col text-center align-self-center">Inverter</div>
                     <div class="col text-center align-self-center">Màu</div>
                     <div class="col text-center align-self-center">Điện Năng</div>
-                    <div class="col text-center align-self-center">Cấp Gió</div>
                     <div class="col text-center align-self-center">Lượt Xem</div>
                 </div>
             <div id="datahere"></div>

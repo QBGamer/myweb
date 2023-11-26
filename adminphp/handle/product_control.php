@@ -107,12 +107,11 @@ if(isset($_SESSION['permission'])){
                 <div class="col align-self-center">'.$brand['brand_name'].'</div>
                 <div class="col align-self-center">'.$type['type_name'].'</div>
                 <div class="col align-self-center">'.number_format($item['prd_price']).'</div>
-                <div class="col-2 align-self-center">'.$item['prd_special'].'</div>
+                <div class="col align-self-center">'.$item['prd_pricenew'].'</div>
                 <div class="col align-self-center">'.$item['prd_size'].'</div>
                 <div class="col align-self-center">'.$item['prd_inverter'].'</div>
                 <div class="col align-self-center">'.$item['prd_color'].'</div>
                 <div class="col align-self-center">'.$item['prd_vol'].'</div>
-                <div class="col align-self-center">'.$item['prd_speedlvl'].'</div>
                 <div class="col align-self-center">'.$item['views'].'</div>
             </div>';
     }

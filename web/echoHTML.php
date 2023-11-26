@@ -43,7 +43,8 @@ function addHeader(){
                 {
                     echo '<li><a class="dropdown-item" href="admin.php">Admin</a></li>';
                 }
-                echo '<li><a class="dropdown-item" href="./handle/handle_logout.php">Đăng xuất</a></li>';
+                echo '<li><a class="dropdown-item" href="./bill.php">Hóa đơn</a></li>
+                <li><a class="dropdown-item" href="./handle/handle_logout.php">Đăng xuất</a></li>';
             }else{
                 echo '<p class="d-lg-inline"><i class="bi-person"></i> '.$uname.'</p></a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow position-absolute">

@@ -39,11 +39,49 @@
 ?>
     <div class="container-fluid">
         <div class="row row-cols-1 py-5">
-            <div class="col ">
+            <div class="col">
                 <div id="cart-data-block" class="card mx-auto p-3">
                 </div>
             </div>
         </div>
+    </div>
+    <div class="modal fade" id="thanhtoan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Thanh toán</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="./handle/handle_bill.php" method="post">
+                <p class="fw-bold">Thông tin khách hàng</p>
+                <div class="row g-2 px-2">
+                    <div class="col">
+                        <input name="phone" type="text" class="form-control" value="<?php echo $_SESSION['phonenumber']?>" placeholder="Số điện thoại">
+                    </div>
+                    <div class="col">
+                        <input name="mail" type="text" class="form-control" value="<?php echo $_SESSION['mail']?>" placeholder="Mail cá nhân">
+                    </div>
+                </div>
+                <div class="row mt-2 px-2">
+                    <div class="col">
+                        <input name="address" type="text" class="form-control" value="<?php echo $_SESSION['address']?>" placeholder="Địa chỉ nhận hàng">
+                    </div>
+                </div>
+                <p class="fw-bold mt-5">Hình thức nhận hàng</p>
+                <div class="form-check px-5">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Nhận tại nhà
+                    </label>
+                </div>
+                <div class="mt-5 justify-content-end">
+                    <button class="btn border-danger text-danger" type="submit">Xác nhận</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
     </div>
 <?php
     addFooter();

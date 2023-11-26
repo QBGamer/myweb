@@ -44,8 +44,8 @@
 <div id="body" class="container-fluid">
   <button type="button" class="btn fs-1" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="sidebar_shop btn_show_lable"><i class="bi-list-columns-reverse"></i> <span class="collapse multi-collapse show" id="btn_show_lable"">Danh mục<span></button>
   <div class="row flex-nowrap">
-      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 border-end border-top collapse multi-collapse show" id="sidebar_shop">
-          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-dark min-vh-100">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0 border-end border-top collapse multi-collapse show" id="sidebar_shop">
+          <div class="d-flex flex-column align-items-center align-items-sm-start px-1 pt-2 text-dark min-vh-100">
               <ul class="nav nav-pills flex-column">
                   <li>
                     <p class="fs-3 mt-1">Thương hiệu</p>
@@ -115,7 +115,7 @@
         <!-- item trang shop here -->
         <div id="shop-product" class="py-5">
           <div class="container">
-              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-lg-4 g-3">
+              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-lg-4 g-1">
                   <?php
                     foreach($productdata as $item){
                       echo '<div class="col">

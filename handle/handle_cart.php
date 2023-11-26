@@ -56,7 +56,7 @@
     // echo '</tbody>
     //     </table>';
     echo '<div class="row border-bottom mb-2">
-            <div class="col-5 fs-5">Sản phẩm</div>
+            <div class="col-6 fs-5">Sản phẩm</div>
             <div class="col fs-5">Đơn giá</div>
             <div class="col fs-5">Số lượng</div>
             <div class="col fs-5">Giá</div>
@@ -90,8 +90,8 @@
             <div class="row row-cols-1 py-5">
                 <div class="col">
                     <div id="cart-buy-block" class="card flex-row-reverse mx-auto p-3">
-                        <button type="button" class="btn btn-danger">Thanh toán</button>
-                        <p class="fs-4">Tổng thanh toán('.mysqli_num_rows($result).' sản phẩm)<span class="px-2 text-warning">'.number_format($total).' đ<span></p>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#thanhtoan">Thanh toán</button>
+                        <p class="fs-4">Tổng thanh toán('.mysqli_num_rows($result).' sản phẩm)<p class="px-2 text-warning">'.number_format($total).' đ<p></p>
                     </div>
                 </div>
             </div>
