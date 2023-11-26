@@ -75,7 +75,7 @@
                     </li>
                     
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="./adminphp/admin_bill.php">
                             <i class='bx bx-shopping-bag icon'></i>
                             <span class="text nav-text">Quản Lí Đơn Hàng</span>
                         </a>
