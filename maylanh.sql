@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2023 at 04:26 PM
+-- Generation Time: Nov 27, 2023 at 06:28 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -114,12 +114,10 @@ CREATE TABLE `product` (
   `prd_name` varchar(100) NOT NULL,
   `prd_price` decimal(50,0) NOT NULL,
   `prd_pricenew` float DEFAULT NULL,
-  `prd_special` varchar(100) DEFAULT NULL,
   `prd_size` varchar(50) NOT NULL,
   `prd_inverter` varchar(10) NOT NULL DEFAULT 'Không',
   `prd_color` varchar(20) NOT NULL,
   `prd_vol` int(10) NOT NULL,
-  `prd_speedlvl` int(10) NOT NULL,
   `picture` varchar(100) NOT NULL,
   `views` int(11) NOT NULL DEFAULT 0,
   `brand_id` int(10) DEFAULT NULL,
@@ -130,11 +128,13 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`prd_id`, `prd_name`, `prd_price`, `prd_pricenew`, `prd_special`, `prd_size`, `prd_inverter`, `prd_color`, `prd_vol`, `prd_speedlvl`, `picture`, `views`, `brand_id`, `type_id`) VALUES
-(1, 'Máy lạnh ngon 1', 10000000, NULL, NULL, '100x100', 'Có', 'light', 300, 3, 'ml.jpg', 6, 1, 3),
-(2, 'Máy lạnh 2', 12000000000, 10, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 323, 1, 2),
-(3, 'Máy lạnh ngon 3', 100000000, NULL, NULL, '100x100', 'Không', 'light', 300, 3, 'ml.jpg', 33, 2, 3),
-(4, 'Máy lạnh 4', 100000000, NULL, NULL, '100x100', 'Không', 'red', 220, 24, 'ml.jpg', 125, 3, 1);
+INSERT INTO `product` (`prd_id`, `prd_name`, `prd_price`, `prd_pricenew`, `prd_size`, `prd_inverter`, `prd_color`, `prd_vol`, `picture`, `views`, `brand_id`, `type_id`) VALUES
+(1, 'Máy Lạnh LG V10API1', 11000000, 12, '100x100', 'Có', 'light', 300, '27112023181123.png', 6, 2, 1),
+(2, 'Máy lạnh LG V10WIN', 12200000, NULL, '100x100', 'Không', 'light', 220, '27112023180845.png', 323, 1, 1),
+(3, 'Máy lạnh LG V10WIN', 9590000, NULL, '100x100', 'Không', 'light', 300, '27112023181014.png', 33, 2, 2),
+(4, 'Máy lạnh LG RAS-H10C4KCVG-V', 9000000, 5, '100x100', 'Có', 'red', 220, '27112023180416.png', 126, 1, 1),
+(7, 'Máy Lạnh Âm Trần Samsung AC035TN1DKC/EA', 25000000, NULL, '200x200', 'Không', 'Trắng', 220, '27112023181832.png', 117, 1, 1),
+(17, 'Máy Lạnh Âm Trần Panasonic HP S-3448PU3H', 50000000, 15, '500x500', 'Có', 'Trắng', 220, '27112023181214.png', 2, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -257,7 +257,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prd_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `prd_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `type`
