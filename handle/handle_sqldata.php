@@ -24,7 +24,7 @@ function getallproduct($sreach_array=['views']){
             $sql .= " AND $mapping[$key] = $value";
         } else if($key === 'type') {
             $sql .= " AND $mapping[$key] = $value";
-        } else if($key === 'views' and $value === '1') {
+        } else if($key === 'views' and $value == '1') {
             // $sql .= " ORDER BY $mapping[$key] " . $value ? "DESC" : "ASC";
             $check=true;
         } else {

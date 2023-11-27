@@ -5,7 +5,7 @@
     require "./web/echoHTML.php";
 
 
-    $newproductdata=getallproduct();
+    $newproductdata=getallproduct(['views'=>0]);
     $hotproductdata=getallproduct(['views'=>1]);
 ?>
 <!DOCTYPE html>
