@@ -129,11 +129,11 @@
               <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-lg-4 g-1">
                   <?php
                     foreach($productdata as $item){
-                      echo '<div class="col">
-                            <div class="card">
+                      echo '<div class=" col">
+                            <div class="shop-product card">
                               <a class="text-decoration-none" href="view.php?id='.$item['prd_id'].'">
-                                <div class="card-img-top d-flex align-items-center">
-                                  <img id="img" class="rounded mx-auto d-block img" src="./product_image/'.$item['picture'].'">
+                                <div class="img-parent card-img-top d-flex align-items-center">
+                                  <img class="rounded mx-auto d-block img" src="./product_image/'.$item['picture'].'">
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title text-dark">'.$item['prd_name'].'</h5>

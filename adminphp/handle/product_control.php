@@ -18,14 +18,17 @@ if(isset($_SESSION['permission'])){
         $type=$_POST['type'];
         $price=$_POST['price'];
         $km=$_POST['newprice'];
-        $special=$_POST['special'];
+        if($_POST['newprice']==0){
+            $km="NULL";
+        }
+        // $special=$_POST['special'];
         $size1=$_POST['size1'];
         $size2=$_POST['size2'];
         $size=$size1."x".$size2;
         $inverter=$_POST['inverter'];
         $color=$_POST['color'];
         $vol=$_POST['vol'];
-        $wind=$_POST['wind'];
+        // $wind=$_POST['wind'];
 
         $temp= explode(".", $_FILES["img"]["name"]);
         $img=date('dmYHis').'.'.end($temp);
@@ -40,13 +43,6 @@ if(isset($_SESSION['permission'])){
                 if(empty($_POST['name']))
                     $sql.=" prd_name=prd_name";
                 else $sql.=" prd_name='$pname'";
-                if(!empty($_FILES['img']['name'])){
-                    $sql.=" ,picture='$fname'";
-                    $img=$_FILES['img']['name'];
-                    $img_loc=$_FILES['img']['tmp_name'];
-                    $save="../../product_image/";
-                    move_uploaded_file($img_loc,$save.$img);
-                }
                 if(!empty($_POST['brand']))
                     $sql.=" ,brand_id='$brand'";
                     // $brand="brand_id";
@@ -56,12 +52,12 @@ if(isset($_SESSION['permission'])){
                 if(!empty($_POST['price']))
                     $sql.=" ,prd_price='$price'";
                     // $price="prd_price";
-                if(!empty($_POST['newprice']))
-                    $sql.=" ,prd_pricenew='$km'";
-                    // $km="prd_pricenew";
-                if(!empty($_POST['special']))
-                    $sql.=" ,prd_special='$special'";
+                if(isset($_POST["newprice"])){
                     // $special="prd_special";
+                    if($km=="NULL")
+                        $sql.=" ,prd_pricenew=NULL";
+                    else $sql.=" ,prd_pricenew='$km'";
+                }
                 if(!empty($_POST['size1'])&&!empty($_POST['size2'])){
                     $size1=$_POST['size1'];
                     $size2=$_POST['size2'];
@@ -76,17 +72,17 @@ if(isset($_SESSION['permission'])){
                     // $color="prd_color";
                 if(!empty($_POST['vol']))
                     $sql.=" ,prd_vol='$vol'";
+                if(!empty(end($temp)))
+                    $sql.=" ,picture='$img'";
                     // $vol="prd_vol";
-                if(!empty($_POST['wind']))
-                    $sql.=" ,prd_speedlvl='$wind'";
                     // $wind="prd_speedlvl";
-            // $sql="UPDATE product SET prd_name=$pname,prd_price=$price,prd_pricenew=$km,prd_special=$special,prd_size=$size
-            //,prd_inverter=$inverter,prd_color=$color,prd_vol=$vol,prd_speedlvl=$wind,picture=$fname,brand_id=$brand,type_id=$type WHERE prd_id=$id";
+            // $sql="UPDATE product SET prd_name=$pname,prd_price=$price,prd_pricenew=$km,prd_size=$size
+            // ,prd_inverter=$inverter,prd_color=$color,prd_vol=$vol,picture=$img,brand_id=$brand,type_id=$type WHERE prd_id=$id";
             $sql.=" WHERE prd_id=$id";
         }else{
-            $sql="INSERT INTO product (prd_name,prd_price,prd_pricenew,prd_special,prd_size,prd_inverter,prd_color,
-            prd_vol,prd_speedlvl,picture,brand_id,type_id) VALUES ('$pname','$price','$km','$special','$size','$inverter','$color','$vol'
-            ,'$wind','$img','$brand','$type')";
+            $sql="INSERT INTO product (prd_name,prd_price,prd_pricenew,prd_size,prd_inverter,prd_color,
+            prd_vol,picture,brand_id,type_id) VALUES ('$pname','$price','$km','$size','$inverter','$color','$vol'
+            ,'$img','$brand','$type')";
         }
         // var_dump($sql);
         mysqli_query($conn,$sql);

@@ -115,3 +115,15 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.img-parent{
+    height: 250px;
+    width: 250px;
+}
+.img-parent img {
+    max-height: 100%;
+    max-width: 100%;
+ }
+ .shop-product{
+    min-height: 420px;
+ }

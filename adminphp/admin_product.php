@@ -99,12 +99,12 @@
                                                     <div class="form-label text-start">Giá:</div>
                                                     <input type="number" min=0 class="form-control" name="price">
                                                 </div>
+                                                <div class="col">
+                                                    <div class="form-label text-start">% Khuyến mãi:</div>
+                                                    <input type="number" min=0 class="form-control" name="newprice">
+                                                </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <div class="col">
-                                                    <div class="form-label text-start">Tính năng:</div>
-                                                    <input type="text" class="form-control" name="special">
-                                                </div>
                                                 <div class="col">
                                                     <div class="form-label text-start">Kích thước:</div>
                                                     <div id="search-box" class="input-group d-flex justify-content-center">
@@ -112,25 +112,19 @@
                                                         <input type="number" min=0 class="form-control" name="size2">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row mb-3">
                                                 <div class="col">
                                                     <div class="form-label text-start">Inverter:</div>
                                                     <input type="text" class="form-control" name="inverter">
                                                 </div>
+                                            </div>
+                                            <div class="row mb-3">
                                                 <div class="col">
                                                     <div class="form-label text-start">Màu:</div>
                                                     <input type="text" class="form-control" name="color">
                                                 </div>
-                                            </div>
-                                            <div class="row mb-3">
                                                 <div class="col">
                                                     <div class="form-label text-start">Điện năng:</div>
                                                     <input type="number" class="form-control" name="vol">
-                                                </div>
-                                                <div class="col">
-                                                    <div class="form-label text-start">Cấp gió:</div>
-                                                    <input type="number" min=1 class="form-control" name="wind">
                                                 </div>
                                             </div>
                                         </div>
