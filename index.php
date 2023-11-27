@@ -136,7 +136,7 @@
                 </div>
             </div>
         </div>
-        <button id="btn-hot-product" type="button" class="btn btn-light my-2 float-end" onclick="window.location='shop.php'">Xem thêm</button>
+        <button id="btn-hot-product" type="button" class="btn btn-light my-2 float-end" onclick="window.location='shop.php?views=1'">Xem thêm</button>
     </div>
 </div>
 <div id="new-product" class="py-5 bg-light">

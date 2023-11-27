@@ -92,6 +92,17 @@
                     </ul>
                   </li>
                   <li>
+                    <p class="fs-3 mt-4">Sắp xếp theo</p>
+                    <ul class="nav flex-column">
+                      <li><a href="#" class="nav-link btn-secondary search-filter" data-mtype="views" data-mvalue="1">
+                        <i class="bi-caret-right"></i> Lượt xem</a>
+                      </li>
+                      <li><a href="#" class="nav-link btn-secondary search-filter" data-mtype="views" data-mvalue="0">
+                        <i class="bi-caret-right"></i> Mới nhất</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
                     <p class="fs-3 mt-4">Giá cả</p>
                     <ul class="nav flex-column">
                       <li>
@@ -157,6 +168,11 @@
             thisurl+="?"+linkget;
         }else{
             if(thisurl.includes(this.dataset.mtype)){
+                if(thisurl.includes("&views=1")){
+                  thisurl=thisurl.replace("&views=1",linkget);
+                }else if(thisurl.includes("&views=0")){
+                  thisurl=thisurl.replace("&views=0",linkget);
+                }else
                 thisurl=thisurl.replace(linkget,'');
             }else{
               thisurl+=linkget;

@@ -24,12 +24,18 @@ function getallproduct($sreach_array=['views']){
             $sql .= " AND $mapping[$key] = $value";
         } else if($key === 'type') {
             $sql .= " AND $mapping[$key] = $value";
-        } else if($key === 'views') {
+        } else if($key === 'views' and $value === '1') {
             // $sql .= " ORDER BY $mapping[$key] " . $value ? "DESC" : "ASC";
-            $sql .= " ORDER BY views DESC";
+            $check=true;
         } else {
-            $sql .= " ORDER BY prd_id DESC";
+            $check=false;
         }
+    }
+    if(isset($check) && $check) {
+        // $sql .= " ORDER BY $mapping[$key] " . $value ? "DESC" : "ASC";
+        $sql .= " ORDER BY views DESC";
+    } else {
+        $sql .= " ORDER BY prd_id DESC";
     }
     // var_dump($sql);
     $result = mysqli_query($conn, $sql);
