@@ -13,7 +13,7 @@ if(isset($_SESSION['permission'])){
 
     if(isset($_POST['name'])){
         $pname=$_POST['name'];
-        $fname=$_FILES['img']['name'];
+        // $fname=$_FILES['img']['name'];
         $brand=$_POST['brand'];
         $type=$_POST['type'];
         $price=$_POST['price'];
@@ -27,10 +27,12 @@ if(isset($_SESSION['permission'])){
         $vol=$_POST['vol'];
         $wind=$_POST['wind'];
 
-        $img=$_FILES['img']['name'];
+        $temp= explode(".", $_FILES["img"]["name"]);
+        $img=date('dmYHis').'.'.end($temp);
         $img_loc=$_FILES['img']['tmp_name'];
         $save="../../product_image/";
         move_uploaded_file($img_loc,$save.$img);
+        
 
         if(!empty($_POST['id'])){
             $id=$_POST['id'];
@@ -84,7 +86,7 @@ if(isset($_SESSION['permission'])){
         }else{
             $sql="INSERT INTO product (prd_name,prd_price,prd_pricenew,prd_special,prd_size,prd_inverter,prd_color,
             prd_vol,prd_speedlvl,picture,brand_id,type_id) VALUES ('$pname','$price','$km','$special','$size','$inverter','$color','$vol'
-            ,'$wind','$fname','$brand','$type')";
+            ,'$wind','$img','$brand','$type')";
         }
         // var_dump($sql);
         mysqli_query($conn,$sql);
