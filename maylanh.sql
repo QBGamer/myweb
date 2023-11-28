@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 02:33 AM
+-- Generation Time: Nov 28, 2023 at 02:37 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -133,10 +133,10 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`prd_id`, `prd_name`, `prd_price`, `prd_pricenew`, `prd_size`, `prd_inverter`, `prd_color`, `prd_vol`, `picture`, `views`, `brand_id`, `type_id`) VALUES
 (1, 'Máy Lạnh LG V10API1', 11000000, 12, '100x100', 'Có', 'light', 300, '27112023181123.png', 6, 2, 1),
-(2, 'Máy Lạnh Panasonic', 12200000, 0, '100x100', 'Không', 'light', 220, '27112023180845.png', 325, 1, 1),
+(2, 'Máy Lạnh Panasonic', 12200000, NULL, '100x100', 'Không', 'light', 220, '27112023180845.png', 325, 1, 1),
 (3, 'Máy lạnh LG V10WIN', 9590000, NULL, '100x100', 'Không', 'light', 300, '27112023181014.png', 35, 2, 2),
 (4, 'Máy lạnh LG RAS-H10C4KCVG-V', 9000000, 5, '100x100', 'Có', 'red', 220, '27112023180416.png', 126, 1, 1),
-(7, 'Máy Lạnh Âm Trần Samsung AC035TN1DKC/EA', 25000000, NULL, '200x200', 'Không', 'Trắng', 220, '27112023181832.png', 119, 1, 1),
+(7, 'Máy Lạnh Âm Trần Samsung AC035TN1DKC/EA', 25000000, NULL, '200x200', 'Không', 'Trắng', 220, '27112023181832.png', 119, 3, 3),
 (17, 'Máy Lạnh Âm Trần Panasonic HP S-3448PU3H', 50000000, 15, '500x500', 'Có', 'Trắng', 220, '27112023181214.png', 5, 1, 3);
 
 -- --------------------------------------------------------
