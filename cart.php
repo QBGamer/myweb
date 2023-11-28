@@ -12,6 +12,9 @@
         //     var_dump($item);
         // }
     }
+    $unam=$_SESSION["username"];
+    $sql="select phonenumber,mail,address from users where username='$unam'";
+    $data=mysqli_fetch_array(mysqli_query($conn,$sql));
 ?>
 <html>
 <head>
@@ -57,15 +60,15 @@
                 <p class="fw-bold">Thông tin khách hàng</p>
                 <div class="row g-2 px-2">
                     <div class="col">
-                        <input name="phone" type="text" class="form-control" value="<?php echo $_SESSION['phonenumber']?>" placeholder="Số điện thoại">
+                        <input id="sdt" name="phone" type="text" class="form-control" value="<?php echo $data['phonenumber']?>" placeholder="Số điện thoại">
                     </div>
                     <div class="col">
-                        <input name="mail" type="text" class="form-control" value="<?php echo $_SESSION['mail']?>" placeholder="Mail cá nhân">
+                        <input id="mail" name="mail" type="text" class="form-control" value="<?php echo $data['mail']?>" placeholder="Mail cá nhân">
                     </div>
                 </div>
                 <div class="row mt-2 px-2">
                     <div class="col">
-                        <input name="address" type="text" class="form-control" value="<?php echo $_SESSION['address']?>" placeholder="Địa chỉ nhận hàng">
+                        <input id="dchi" name="address" type="text" class="form-control" value="<?php echo $data['address']?>" placeholder="Địa chỉ nhận hàng">
                     </div>
                 </div>
                 <p class="fw-bold mt-5">Hình thức nhận hàng</p>
@@ -76,6 +79,7 @@
                     </label>
                 </div>
                 <div class="mt-5 justify-content-end">
+                    <button class="btn border-success text-success" type="button" onclick="saveinfo()" data-bs-dismiss="modal">Lưu thông tin</button>
                     <button class="btn border-danger text-danger" type="submit">Xác nhận</button>
                 </div>
             </form>
@@ -93,11 +97,26 @@
     <?php
         searchbox();
     ?>
+    function saveinfo(){
+        var sdt=document.getElementById("sdt");
+        var mail=document.getElementById("mail");
+        var dchi=document.getElementById("dchi");
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert("Thêm địa chỉ thành công!");
+            }
+        };
+        var fullstring="?sdt="+sdt.value+"&mail="+mail.value+"&dchi="+dchi.value;
+        console.log(fullstring);
+        xmlhttp.open("GET","./handle/handle_user.php"+fullstring,true);
+        xmlhttp.send();
+    }
     function showCart() {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("cart-data-block").innerHTML = this.responseText;
+                document.getElementById("cart-data-block").innerHTML = this.responseText;
             }
         };
         xmlhttp.open("GET","./handle/handle_cart.php",true);
@@ -109,7 +128,7 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("cart-data-block").innerHTML = this.responseText;
+                document.getElementById("cart-data-block").innerHTML = this.responseText;
             }
         };
         xmlhttp.open("GET","./handle/handle_cart.php?id="+id+"&type="+type,true);

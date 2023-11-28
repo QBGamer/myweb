@@ -52,13 +52,6 @@
                             <span class="text nav-text">Trang Chủ</span>
                         </a>
                     </li>
-
-                    <li class="nav-link">
-                        <a href="./admin.php">
-                            <i class="bx bx-clipboard icon" ></i>
-                            <span class="text nav-text">Thống kê</span>
-                        </a>
-                    </li>
                     
                     <li class="nav-link qlsp">
                         <a href="./adminphp/admin_product.php">

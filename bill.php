@@ -44,11 +44,11 @@
         $result = mysqli_query($conn,$sql);
         foreach($result as $item){
             $id= $item["bil_id"];
-            $sql="SELECT item_bill.bill_id,prd_name,item_bill.num,bill.total,bill.stats FROM item_bill,bill,product WHERE bill.bil_id=item_bill.bill_id AND bill.username='$username' AND item_bill.item_id=product.prd_id AND bill.bil_id=$id";
+            $sql="SELECT item_bill.bill_id,prd_name,prd_id,item_bill.num,bill.total,bill.stats FROM item_bill,bill,product WHERE bill.bil_id=item_bill.bill_id AND bill.username='$username' AND item_bill.item_id=product.prd_id AND bill.bil_id=$id";
             $result2=mysqli_query($conn,$sql);
             foreach($result2 as $item2){
                 echo '<div class="row p-1">
-                    <div class="col">'.$item2['prd_name'].'</div>
+                    <div class="col"><a href="./view.php?id='.$item2['prd_id'].'">'.$item2['prd_name'].'</a></div>
                     <div class="col">'.$item2['num'].'</div>';
                 switch($item2['stats']){
                     case 0:
@@ -62,7 +62,7 @@
                         break;
                 }
             }
-            echo '<div class="d-flex flex-row-reverse fw-bold mb-5"><div class="text-danger ">Tổng: '.number_format($item2['total']).' đ</div></div>';
+            echo '<div class="d-flex flex-row-reverse fw-bold mb-5 border-bottom"><div class="text-danger ">Tổng: '.number_format($item2['total']).' đ</div></div>';
         }
         ?>
     </div>
