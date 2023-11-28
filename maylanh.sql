@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2023 at 06:28 PM
+-- Generation Time: Nov 28, 2023 at 02:33 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -45,7 +45,8 @@ CREATE TABLE `bill` (
 INSERT INTO `bill` (`bil_id`, `date`, `username`, `phone`, `mail`, `address`, `total`, `stats`) VALUES
 (11, '2023-11-26 13:46:43', 'user', '1234567890', 'binh@gmail.com', 'ABCDEF', 108000000000, 0),
 (12, '2023-11-26 13:49:24', 'user', '1234567890', 'binh@gmail.com', 'ABCDEF', 109200000000, 1),
-(13, '2023-11-26 14:53:01', 'admin', '', '', '', 130000000000, 2);
+(13, '2023-11-26 14:53:01', 'admin', '', '', '', 130000000000, 2),
+(14, '2023-11-28 02:01:00', 'admin', '123123123', '', '', 1187500000, 0);
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,9 @@ INSERT INTO `item_bill` (`bill_id`, `item_id`, `num`) VALUES
 (12, 2, 10),
 (12, 3, 12),
 (13, 3, 4),
-(13, 2, 12);
+(13, 2, 12),
+(14, 7, 5),
+(14, 17, 25);
 
 -- --------------------------------------------------------
 
@@ -130,11 +133,11 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`prd_id`, `prd_name`, `prd_price`, `prd_pricenew`, `prd_size`, `prd_inverter`, `prd_color`, `prd_vol`, `picture`, `views`, `brand_id`, `type_id`) VALUES
 (1, 'Máy Lạnh LG V10API1', 11000000, 12, '100x100', 'Có', 'light', 300, '27112023181123.png', 6, 2, 1),
-(2, 'Máy lạnh LG V10WIN', 12200000, NULL, '100x100', 'Không', 'light', 220, '27112023180845.png', 323, 1, 1),
-(3, 'Máy lạnh LG V10WIN', 9590000, NULL, '100x100', 'Không', 'light', 300, '27112023181014.png', 33, 2, 2),
+(2, 'Máy Lạnh Panasonic', 12200000, 0, '100x100', 'Không', 'light', 220, '27112023180845.png', 325, 1, 1),
+(3, 'Máy lạnh LG V10WIN', 9590000, NULL, '100x100', 'Không', 'light', 300, '27112023181014.png', 35, 2, 2),
 (4, 'Máy lạnh LG RAS-H10C4KCVG-V', 9000000, 5, '100x100', 'Có', 'red', 220, '27112023180416.png', 126, 1, 1),
-(7, 'Máy Lạnh Âm Trần Samsung AC035TN1DKC/EA', 25000000, NULL, '200x200', 'Không', 'Trắng', 220, '27112023181832.png', 117, 1, 1),
-(17, 'Máy Lạnh Âm Trần Panasonic HP S-3448PU3H', 50000000, 15, '500x500', 'Có', 'Trắng', 220, '27112023181214.png', 2, 1, 3);
+(7, 'Máy Lạnh Âm Trần Samsung AC035TN1DKC/EA', 25000000, NULL, '200x200', 'Không', 'Trắng', 220, '27112023181832.png', 119, 1, 1),
+(17, 'Máy Lạnh Âm Trần Panasonic HP S-3448PU3H', 50000000, 15, '500x500', 'Có', 'Trắng', 220, '27112023181214.png', 5, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -176,7 +179,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `password`, `phonenumber`, `mail`, `address`, `permission`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', NULL, NULL, NULL, b'1'),
+('admin', '21232f297a57a5a743894a0e4a801fc3', '1231111111', 'admin@admin.com', 'Vĩnh Long', b'1'),
 ('user', '25d55ad283aa400af464c76d713c07ad', '1234567890', 'binh@gmail.com', 'ABCDEF', NULL);
 
 --
@@ -239,7 +242,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `bil_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `bil_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `brand`
@@ -251,7 +254,7 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `product`
